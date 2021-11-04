@@ -1,10 +1,10 @@
 package pojos;
 
-public class FoodGroup {
+public class FoodAllergy {
     private int id;
     private String name;
 
-    public FoodGroup(int id, String name) {
+    public FoodAllergy(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -16,5 +16,4 @@ public class FoodGroup {
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
-
 }

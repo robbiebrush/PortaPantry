@@ -4,13 +4,17 @@ public class Food {
     private int id;
     private String name;
     private int foodGroup;
-    private int foodFacts;
+    private int foodAllergy;
     private String amount;
     private String expiryDate;
 
-    public Food(int id, String name) {
+    public Food(int id, String name, int foodGroup, int foodAllergy, String amount, String expiryDate) {
         this.id = id;
         this.name = name;
+        this.foodGroup = foodGroup;
+        this.foodAllergy = foodAllergy;
+        this.amount = amount;
+        this.expiryDate = expiryDate;
     }
 
     public int getId() {
@@ -31,9 +35,9 @@ public class Food {
 
     public void setFoodGroup(int foodGroup) { this.foodGroup = foodGroup; }
 
-    public int getFoodFacts() { return foodFacts; }
+    public int getFoodAllergies() { return foodAllergy; }
 
-    public void setFoodFacts(int foodFacts) { this.foodFacts = foodFacts; }
+    public void setFoodAllergies(int foodFacts) { this.foodAllergy = foodAllergy; }
 
     public String getAmount() { return amount; }
 

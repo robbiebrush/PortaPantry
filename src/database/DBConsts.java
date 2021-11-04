@@ -1,4 +1,4 @@
-package DatabaseClasses;
+package database;
 
 public class DBConsts {
     public static final String DB_NAME = "rbrushjava";

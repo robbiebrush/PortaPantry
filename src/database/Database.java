@@ -1,4 +1,4 @@
-package DatabaseClasses;
+package database;
 
 import java.sql.*;
 
@@ -20,9 +20,9 @@ public class Database {
                 //Create the foods table
                 createTable(DBTableValues.TABLE_FOODS,
                         DBTableValues.CREATE_TABLE_FOODS, connection);
-                //Create the food_facts table
-                createTable(DBTableValues.TABLE_FOOD_FACTS,
-                        DBTableValues.CREATE_TABLE_FOOD_FACTS, connection);
+                //Create the food_allergies table
+                createTable(DBTableValues.TABLE_FOOD_ALLERGIES,
+                        DBTableValues.CREATE_TABLE_FOOD_ALLERGIES, connection);
                 //Create the food_groups table
                 createTable(DBTableValues.TABLE_FOOD_GROUPS,
                         DBTableValues.CREATE_TABLE_FOOD_GROUPS, connection);
