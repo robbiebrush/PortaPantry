@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c0d5a60-9b49-4fed-b246-c05e7f1f4ac4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/android_31.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PortaPantry.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PortaPantry.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortaPantry/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortaPantry/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortaPantry/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PortaPantry/tables/FoodsTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PortaPantry/tables/FoodsTable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tables/FoodsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tables/FoodsTable.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="20YvRBciUACpG8nVbbJjKZ8YQug" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PATH_TO_FIX$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Main" />
+      <module name="PortaPantry" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c0d5a60-9b49-4fed-b246-c05e7f1f4ac4" name="Default Changelist" comment="" />
+      <created>1636234326233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636234326233</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="958" y="211" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1636234981015">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="958" y="211" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1636234981015" />
+    <state x="858" y="272" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1636234959666">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="858" y="272" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1636234959666" />
+    <state x="925" y="393" key="DetectedRootsChooserDialog" timestamp="1636234758127">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="925" y="393" key="DetectedRootsChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1636234758127" />
+    <state x="834" y="259" key="FileChooserDialogImpl" timestamp="1636234978830">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="834" y="259" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1636234978830" />
+    <state width="1230" height="260" key="GridCell.Tab.0.bottom" timestamp="1636235280837">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1230" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636235280837" />
+    <state width="1230" height="260" key="GridCell.Tab.0.center" timestamp="1636235280837">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1230" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636235280837" />
+    <state width="1230" height="260" key="GridCell.Tab.0.left" timestamp="1636235280836">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1230" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636235280836" />
+    <state width="1230" height="260" key="GridCell.Tab.0.right" timestamp="1636235280837">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1230" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636235280837" />
+    <state x="608" y="92" key="SettingsEditor" timestamp="1636234984299">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="608" y="92" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636234984299" />
+  </component>
+</project>
