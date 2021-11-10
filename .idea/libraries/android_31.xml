@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="android-31">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/.jdks/javafx-sdk-15.0.1/sources/android-31" />
+      <root url="file://$USER_HOME$/.jdks/javafx-sdk-15.0.1/tools/proguard/examples/annotations/examples" />
+      <root url="file://$USER_HOME$/.jdks/javafx-sdk-15.0.1/tools/proguard/examples/annotations/src" />
+    </SOURCES>
+  </library>
+</component>
