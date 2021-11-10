@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import database.Database;
 import javafx.application.Application;
