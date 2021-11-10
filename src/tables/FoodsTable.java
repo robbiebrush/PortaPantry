@@ -3,8 +3,10 @@ package tables;
 import database.DBTableValues;
 import database.Database;
 import doas.FoodDOA;
+import pojos.DisplayFood;
 import pojos.Food;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,7 +25,7 @@ public class FoodsTable implements FoodDOA {
                 DBTableValues.FOODS_COLUMN_AMOUNT + ", " +
                 DBTableValues.FOODS_COLUMN_EXPIRY_DATE + ") VALUES ('" +
                 food.getName() + "','" + food.getFoodGroup() + "','" +
-                food.getFoodAllergies() + "','" + food.getAmount() + "','" +
+                food.getFoodAllergy() + "','" + food.getAmount() + "','" +
                 food.getExpiryDate() + "')";
         try {
             db.getConnection().createStatement().execute(query);
@@ -83,12 +85,73 @@ public class FoodsTable implements FoodDOA {
 
     @Override
     public void updateFood(Food food) {
-        //String query = "DELETE FROM " + DBTableValues.TABLE_FOODS +
-                //" WHERE " + DBTableValues.FOODS_COLUMN_ID + ;
+        String query = "UPDATE " + DBTableValues.TABLE_FOODS + " SET " +
+                DBTableValues.FOODS_COLUMN_NAME + "= " + food.getName() +  ", " +
+                DBTableValues.FOODS_COLUMN_FOOD_GROUP + "= " + food.getFoodGroup() +  ", " +
+                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + "= " + food.getFoodAllergy() + ", " +
+                DBTableValues.FOODS_COLUMN_AMOUNT + "= " + food.getAmount() + ", " +
+                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + "= " + food.getExpiryDate() +
+                " WHERE " + DBTableValues.FOODS_COLUMN_ID + " = " + food.getId();
+        try {
+            Statement updateItem = db.getConnection().createStatement();
+            updateItem.executeUpdate(query);
+            System.out.println("Record Updated");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteFood(Food food) {
-        String query = "";
+        String query  = "DELETE FROM " + DBTableValues.TABLE_FOODS + " WHERE " +
+                DBTableValues.FOODS_COLUMN_ID + " = " + food;
+        try {
+            db.getConnection().createStatement().execute(query);
+            System.out.println("Deleted record");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<DisplayFood> getPrettyFoods(){
+        ArrayList<DisplayFood> foods = new ArrayList<DisplayFood>();
+        String query = "SELECT Foods.id, Foods.name, FoodGroup.name AS food_group, " +
+                " FoodAllergy.name as food_allergy, Foods.amount, Foods.expiry_date" +
+                " from Foods " +
+                "JOIN FoodGroup on Foods.food_group = FoodGroup.id " +
+                "JOIN FoodAllergy on Foods.food_allergy = FoodAllergy.id " +
+                "ORDER BY item.id ASC";
+        try {
+            Statement getItems = db.getConnection().createStatement();
+            ResultSet data = getItems.executeQuery(query);
+            while(data.next()) {
+                foods.add(new DisplayFood(data.getInt("id"),
+                        data.getString("name"),
+                        data.getString("food_group)"),
+                        data.getString("food_allergy"),
+                        data.getString("amount"),
+                        data.getString("expiry_date")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return foods;
+    }
+
+    public int getFoodGroupCount(int foodGroup) {
+        int count = -1;
+        try {
+            PreparedStatement getCount = db.getConnection()
+                    .prepareStatement("SELECT * FROM " + DBTableValues.TABLE_FOODS + " WHERE "
+                                    + DBTableValues.FOODS_COLUMN_NAME + " = '" + foodGroup + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE);
+            ResultSet data = getCount.executeQuery();
+            data.last();
+            count = data.getRow();
+        }
+        catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 }

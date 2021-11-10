@@ -3,7 +3,7 @@ package database;
 public class DBTableValues {
 
     //Foods TABLE
-    public static final String TABLE_FOODS = "foods";
+    public static final String TABLE_FOODS = "Foods";
     public static final String FOODS_COLUMN_ID = "id";
     public static final String FOODS_COLUMN_NAME = "name";
 
@@ -14,12 +14,12 @@ public class DBTableValues {
     public static final String FOODS_COLUMN_EXPIRY_DATE = "expiry_date";
 
     //Food_Allergies TABLE
-    public static final String TABLE_FOOD_ALLERGIES = "food_allergies";
+    public static final String TABLE_FOOD_ALLERGIES = "FoodAllergies";
     public static final String ALLERGIES_COLUMN_ID = "id";
     public static final String ALLERGIES_COLUMN_NAME = "name";
 
     //Food_Groups TABLE
-    public static final String TABLE_FOOD_GROUPS = "food_groups";
+    public static final String TABLE_FOOD_GROUPS = "FoodGroups";
     public static final String GROUPS_COLUMN_ID = "id";
     public static final String GROUPS_COLUMN_NAME = "name";
 

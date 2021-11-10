@@ -35,9 +35,9 @@ public class Food {
 
     public void setFoodGroup(int foodGroup) { this.foodGroup = foodGroup; }
 
-    public int getFoodAllergies() { return foodAllergy; }
+    public int getFoodAllergy() { return foodAllergy; }
 
-    public void setFoodAllergies(int foodFacts) { this.foodAllergy = foodAllergy; }
+    public void setFoodAllergy(int foodFacts) { this.foodAllergy = foodAllergy; }
 
     public String getAmount() { return amount; }
 
