@@ -1,3 +1,5 @@
+package DatabaseClasses;
+
 public class DBTableValues {
 
     //Foods TABLE
