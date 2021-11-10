@@ -1,0 +1,4 @@
+# Default ignored files
+.idea/*
+PortaPantry.iml
+src/database/DBCOnsts.java
