@@ -1,4 +1,11 @@
-# Default ignored files
+# Ignored files
 .idea/*
 PortaPantry.iml
 src/main/java/com/example/portapantry/database/DBConsts.java
+.gradle
+gradle
+build
+build.gradle
+gradlew
+gradlew.bat
+settings.gradle
