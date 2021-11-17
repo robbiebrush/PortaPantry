@@ -1,12 +1,16 @@
 package com.example.portapantry;
 
 import com.example.portapantry.database.Database;
+import com.example.portapantry.forms.AddFood;
+import com.example.portapantry.forms.RemoveFood;
+import com.example.portapantry.forms.StatisticsTab;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -16,8 +20,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-public class HelloApplication extends Application {
+/**
+ * Javafx Class HelloApplication
+ */
 
+public class HelloApplication extends Application {
+    public static TabPane tabPane;
     Stage window;
     Scene scene1, scene2, scene3, scene4, scene5;
 

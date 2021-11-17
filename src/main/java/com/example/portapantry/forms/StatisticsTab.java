@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.example.portapantry.forms;
 
 import javafx.scene.control.Tab;
 
