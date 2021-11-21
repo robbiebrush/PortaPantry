@@ -102,7 +102,7 @@ public class FoodsTable implements FoodDOA {
     }
 
     @Override
-    public void deleteFood(Food food) {
+    public void deleteFood(int food) {
         String query  = "DELETE FROM " + DBTableValues.TABLE_FOODS + " WHERE " +
                 DBTableValues.FOODS_COLUMN_ID + " = " + food;
         try {
