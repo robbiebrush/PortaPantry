@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Database.getInstance();
+        //Database.getInstance();
         Text text = new Text();
         text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
         text.setText("Welcome to your PortaPantry!");

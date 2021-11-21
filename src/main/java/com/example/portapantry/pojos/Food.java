@@ -8,8 +8,18 @@ public class Food {
     private String amount;
     private String expiryDate;
 
+    //Read
     public Food(int id, String name, int foodGroup, int foodAllergy, String amount, String expiryDate) {
         this.id = id;
+        this.name = name;
+        this.foodGroup = foodGroup;
+        this.foodAllergy = foodAllergy;
+        this.amount = amount;
+        this.expiryDate = expiryDate;
+    }
+
+    //Write
+    public Food(String name, int foodGroup, int foodAllergy, String amount, String expiryDate) {
         this.name = name;
         this.foodGroup = foodGroup;
         this.foodAllergy = foodAllergy;
