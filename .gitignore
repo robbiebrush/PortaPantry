@@ -1,0 +1,5 @@
+# Ignored files
+.idea/*
+PortaPantry.iml
+src/main/java/com/example/portapantry/database/DBConsts.java
+.gradle
