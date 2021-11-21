@@ -1,12 +1,14 @@
 package com.example.portapantry;
 
 import com.example.portapantry.database.Database;
+import com.example.portapantry.tabs.AddFoodTab;
+import com.example.portapantry.tabs.RemoveFoodTab;
+import com.example.portapantry.tabs.StatsFoodTab;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -18,60 +20,49 @@ import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
 
-    Stage window;
-    Scene mainScene, viewScene, addScene, editScene;
+    public static TabPane tabPane;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
         //Database.getInstance();
-        Text text = new Text();
-        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
-        text.setText("Welcome to your PortaPantry!");
-        window = primaryStage;
-        StackPane root = new StackPane();
+
+        BorderPane root = new BorderPane();
+        //Build a menubar
+        MenuBar menu = new MenuBar();
+        //Build menu items
+        Menu fileMenu = new Menu("File");
+        Menu creditsMenu = new Menu("Credits");
+        MenuItem exit = new MenuItem("Exit");
+        exit.setOnAction(e->{
+            System.exit(0);
+        });
+        fileMenu.getItems().add(exit);
+        //Add menu items to the bar
+        menu.getMenus().addAll(fileMenu, creditsMenu);
+        root.setTop(menu);
+
+        tabPane = new TabPane();
+        //Create the tabs
+        AddFoodTab addFoodTab = AddFoodTab.getInstance();
+        RemoveFoodTab removeFoodTab = RemoveFoodTab.getInstance();
+        StatsFoodTab statsFoodTab = StatsFoodTab.getInstance();
+        tabPane.getTabs().addAll(addFoodTab, removeFoodTab, statsFoodTab);
+        tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+
+        Text title = new Text();
+        title.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
+        title.setText("Welcome to your PortaPantry!");
         VBox vbox = new VBox(10);
 
-        Button viewPantry = new Button("View your Pantry");
-        viewPantry.setOnAction(e-> window.setScene(viewScene));
-
-        StackPane root2 = new StackPane();
-        Menu fileMenu = new Menu("food inventory");
-        MenuBar menu = new MenuBar();
-        menu.getMenus().addAll(fileMenu);
-        root2.getChildren().add(menu);
-        root2.setAlignment(Pos.TOP_LEFT);
-        viewScene = new Scene(root2, 1024 ,768);
-
-        Button addPantry = new Button("Add to Pantry");
-        addPantry.setOnAction(e-> window.setScene(addScene));
-
-        StackPane root3 = new StackPane();
-        addScene = new Scene(root3, 1024 ,768);
-        Menu fileMenu2 = new Menu("add a food");
-        MenuBar menu2 = new MenuBar();
-        menu2.getMenus().addAll(fileMenu2);
-        root3.getChildren().add(menu2);
-        root3.setAlignment(Pos.TOP_LEFT);
-
-        Button editPantry = new Button("Edit your Pantry");
-        editPantry.setOnAction(e-> window.setScene(editScene));
-
-        StackPane root4 = new StackPane();
-        editScene = new Scene(root4, 1024 ,768);
-        Menu fileMenu3 = new Menu("update a food");
-        MenuBar menu3 = new MenuBar();
-        menu3.getMenus().addAll(fileMenu3);
-        root4.getChildren().add(menu3);
-        root4.setAlignment(Pos.TOP_LEFT);
-
-        vbox.getChildren().addAll(text, viewPantry, addPantry, editPantry);
-        root.getChildren().add(vbox);
+        //Configure tab closing policy
+        //Add the menubar and tabpane to pane
+        vbox.getChildren().add(title);
+        root.getChildren().addAll(vbox, tabPane);
         vbox.setAlignment(Pos.CENTER);
-        window.setTitle("PortaPantry");
-
-        mainScene = new Scene(root, 1024, 768);
-        window.setScene(mainScene);
-        window.show();
+        Scene scene = new Scene(root, 1024, 768);
+        stage.setTitle("PortaPantry");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
