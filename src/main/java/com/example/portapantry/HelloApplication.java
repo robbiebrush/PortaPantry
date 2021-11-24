@@ -1,14 +1,14 @@
 package com.example.portapantry;
 
+import com.example.portapantry.forms.AddFood;
+import com.example.portapantry.forms.RemoveFood;
+import com.example.portapantry.forms.StatisticsTab;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TabPane;
-import com.example.portapantry.tabs.AddFoodTab;
-import com.example.portapantry.tabs.RemoveFoodTab;
-import com.example.portapantry.tabs.StatsFoodTab;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -47,9 +47,9 @@ public class HelloApplication extends Application {
 
         tabPane = new TabPane();
         //Create the tabs
-        AddFoodTab addFoodTab = AddFoodTab.getInstance();
-        RemoveFoodTab removeFoodTab = RemoveFoodTab.getInstance();
-        StatsFoodTab statsFoodTab = StatsFoodTab.getInstance();
+        AddFood addFoodTab = AddFood.getInstance();
+        RemoveFood removeFoodTab = RemoveFood.getInstance();
+        StatisticsTab statsFoodTab = StatisticsTab.getInstance();
         tabPane.getTabs().addAll(addFoodTab, removeFoodTab, statsFoodTab);
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
