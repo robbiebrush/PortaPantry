@@ -21,8 +21,6 @@ public class UpdateFood extends Tab {
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
         FoodsTable foodsTable = new FoodsTable();
         Food updateFood = foodsTable.getFood(food.getId());
-        //    ItemTable itemTable = new ItemTable();
-//        itemTable.createItem(new Item(1,1990,1,1));
         GridPane root = new GridPane();
         Text name = new Text("Food Name: ");
         root.add(name,0,0);
@@ -47,12 +45,14 @@ public class UpdateFood extends Tab {
         root.add(labelYear, 0,4);
         TextField year = new TextField();
         root.add(year, 1,4);
-        Button submit = new Button("Update");
+
+        Button submit = new Button("Update Food");
         submit.setOnAction(e->{
             updateFood.setName(comboName.getSelectionModel().getSelectedItem().getName());
             updateFood.setFoodGroup(comboCondition.getSelectionModel().getSelectedItem().getId());
             updateFood.setFoodAllergy(comboLocation.getSelectionModel().getSelectedItem().getId());
-            FoodsTable.updateFood(updateFood);
+            updateFood.setExpiryDate(String.valueOf(year.getText()));
+            foodsTable.updateFood(updateFood);
             RemoveFood.getInstance().refreshTable();
             StatisticsTab.getInstance().generateChart();
             HelloApplication.tabPane.getTabs().remove(this);

@@ -2,7 +2,6 @@ package com.example.portapantry.forms;
 
 import com.example.portapantry.HelloApplication;
 import com.example.portapantry.pojos.DisplayFood;
-import com.example.portapantry.pojos.Food;
 import com.example.portapantry.pojos.FoodGroup;
 import com.example.portapantry.tables.FoodGroupsTable;
 import com.example.portapantry.tables.FoodsTable;
@@ -20,9 +19,11 @@ import javafx.scene.layout.HBox;
 import java.util.ArrayList;
 
 public class RemoveFood extends Tab {
+
     private static RemoveFood tab;
     public TableView tableView;
     PieChart chart;
+
     private RemoveFood(){
         this.setText("Remove Item");
         FoodsTable foodsTable = new FoodsTable();
@@ -30,26 +31,26 @@ public class RemoveFood extends Tab {
         tableView = new TableView();
 
         TableColumn<DisplayFood, String> column1 =
-                new TableColumn<>("Coin Name");
+                new TableColumn<>("Food Name");
         column1.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getName()));
 
         TableColumn<DisplayFood, String> column2 =
-                new TableColumn<>("Coin Condition");
+                new TableColumn<>("Food Group");
         column2.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodGroup()));
 
         TableColumn<DisplayFood, String> column3 =
-                new TableColumn<>("Coin Year");
+                new TableColumn<>("Food Allergy");
         column3.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodAllergy()));
 
         TableColumn<DisplayFood, String> column4 =
-                new TableColumn<>("Coin Location");
+                new TableColumn<>("Expiry Date");
         column4.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getExpiryDate()));
 
         tableView.getColumns().addAll(column1, column2, column3, column4);
         tableView.getItems().addAll(foodsTable.getPrettyFoods());
 
         root.setCenter(tableView);
-        Button removeButton = new Button("Remove Record");
+        Button removeButton = new Button("Remove Food");
         removeButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
             foodsTable.deleteFood(food.getId());
@@ -57,7 +58,7 @@ public class RemoveFood extends Tab {
             generateChart();
         });
         chart = new PieChart();
-        chart.setTitle("All Coins Found");
+        chart.setTitle("All Foods Found");
         chart.setLabelsVisible(true);
         root.setRight(chart);
         generateChart();
@@ -93,15 +94,15 @@ public class RemoveFood extends Tab {
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
 
         //Grab a list of the types of Foods
-        ArrayList<FoodGroup> foods = foodGroupsTable.getAllFoodGroups();
+        ArrayList<FoodGroup> foodGroups = foodGroupsTable.getAllFoodGroups();
 
         ArrayList<PieChart.Data> data = new ArrayList<>();
 
         // "PENNY", 5
-        for (Coin coin : coins) {
-            double count = itemTable.getItemCount(coin.getId());
+        for (FoodGroup foodGroup : foodGroups) {
+            double count = itemTable.getFoodGroupCount(foodGroup.getId());
             if (count > 0) {
-                data.add(new PieChart.Data(coin.getName(), count));
+                data.add(new PieChart.Data(foodGroup.getName(), count));
             }
         }
 
