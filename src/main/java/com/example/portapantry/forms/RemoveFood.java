@@ -18,6 +18,10 @@ import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
 
+/**
+ * Class RemoveFood
+ */
+
 public class RemoveFood extends Tab {
 
     private static RemoveFood tab;

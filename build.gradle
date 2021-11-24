@@ -19,6 +19,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+dependencies {
+    implementation "mysql:mysql-connector-java:8.0.26"
+}
 
 ext {
     junitVersion = '5.7.1'
