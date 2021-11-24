@@ -10,5 +10,6 @@ public interface FoodDOA {
     public ArrayList<Food> getAllFoods();
     public Food getFood(int id);
     public void updateFood(Food food);
-    public void deleteFood(Food food);
+    public void deleteFood(int food);
+
 }

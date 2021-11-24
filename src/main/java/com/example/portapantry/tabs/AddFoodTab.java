@@ -1,4 +1,4 @@
-package com.example.portapantry.forms;
+package com.example.portapantry.tabs;
 
 import com.example.portapantry.pojos.Food;
 import com.example.portapantry.pojos.FoodAllergy;
@@ -14,60 +14,60 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-public class AddFood extends Tab {
-    private static AddFood tab;
+public class AddFoodTab extends Tab {
 
-    private AddFood(){
-        this.setText("Add Food");
-        FoodAllergiesTable foodAllergiesTable = new FoodAllergiesTable();
+    private static AddFoodTab tab;
+
+    private AddFoodTab(){
+        this.setText("Add Item");
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
+        FoodAllergiesTable foodAllergiesTable = new FoodAllergiesTable();
         FoodsTable foodsTable = new FoodsTable();
-
 
         GridPane root = new GridPane();
 
-        Text LabelName = new Text("Food Name: ");
-        root.add(LabelName,0,4);
+        Text labelName = new Text("Food: ");
+        root.add(labelName, 0,4);
         TextField name = new TextField();
         root.add(name, 1,4);
 
         Text foodGroup = new Text("Food Group: ");
-        root.add(foodGroup, 0,2);
-        ComboBox<FoodGroup> comboFoodGroup = new ComboBox<>();
-        comboFoodGroup.setItems(
+        root.add(foodGroup,0,0);
+        ComboBox<FoodGroup> comboGroup = new ComboBox<>();
+        comboGroup.setItems(
                 FXCollections.observableArrayList(foodGroupsTable.getAllFoodGroups())
         );
-        root.add(comboFoodGroup, 1,2);
+        root.add(comboGroup, 1, 0);
 
         Text foodAllergy = new Text("Food Allergy: ");
-        root.add(foodAllergy, 0,3);
-        ComboBox<FoodAllergy> comboFoodAllergy = new ComboBox<>();
-        comboFoodAllergy.setItems(
+        root.add(foodAllergy, 0,2);
+        ComboBox<FoodAllergy> comboAllergy = new ComboBox<>();
+        comboAllergy.setItems(
                 FXCollections.observableArrayList(foodAllergiesTable.getAllFoodAllergies())
         );
-        root.add(comboFoodAllergy, 1,3);
+        root.add(comboAllergy, 1,2);
 
         Text labelAmount = new Text("Amount: ");
         root.add(labelAmount, 0,4);
         TextField amount = new TextField();
         root.add(amount, 1,4);
 
-        Text labelYear = new Text("Expiry Date:");
-        root.add(labelYear, 0,4);
-        TextField expiryDate = new TextField();
-        root.add(expiryDate, 1,4);
+        Text labelExpiry = new Text("Expiry Date: ");
+        root.add(labelExpiry, 0,4);
+        TextField expiry = new TextField();
+        root.add(expiry, 1,4);
 
-        Button submit = new Button("Submit");
+        Button submit = new Button("Add Food");
         submit.setOnAction(e->{
             Food food = new Food(
                     String.valueOf(name.getText()),
-                    comboFoodGroup.getSelectionModel().getSelectedItem().getId(),
-                    comboFoodAllergy.getSelectionModel().getSelectedItem().getId(),
+                    comboGroup.getSelectionModel().getSelectedItem().getId(),
+                    comboAllergy.getSelectionModel().getSelectedItem().getId(),
                     String.valueOf(amount.getText()),
-                    String.valueOf(expiryDate.getText()));
-            foodsTable.createFood(food);
-            StatisticsTab.getInstance().generateChart();
-            RemoveFood.getInstance().refreshTable();
+                    String.valueOf(expiry.getText()));
+                    foodsTable.createFood(food);
+                    StatsFoodTab.getInstance().generateChart();
+                    RemoveFoodTab.getInstance().refreshTable();
         });
         root.add(submit,0,5);
         this.setContent(root);
@@ -75,15 +75,11 @@ public class AddFood extends Tab {
 
     }
 
-    public static AddFood getInstance(){
+    public static AddFoodTab getInstance(){
         if(tab == null){
-            tab = new AddFood();
+            tab = new AddFoodTab();
         }
         return tab;
     }
 
-
-
 }
-
-

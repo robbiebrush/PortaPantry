@@ -2,6 +2,7 @@
 .idea/*
 PortaPantry.iml
 src/main/java/com/example/portapantry/database/DBConsts.java
+<<<<<<< HEAD
 .gradle
 gradle
 build
@@ -9,3 +10,6 @@ build.gradle
 gradlew
 gradlew.bat
 settings.gradle
+=======
+.gradle
+>>>>>>> adb494f9ba67209ad2fd91673cd14dfe089e3251

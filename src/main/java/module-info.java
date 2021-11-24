@@ -4,8 +4,9 @@ module com.example.portapantry {
     requires java.sql;
 
 
+    requires org.controlsfx.controls;
+
     opens com.example.portapantry to javafx.fxml;
     exports com.example.portapantry;
-    exports com.example.portapantry.database;
-    opens com.example.portapantry.database to javafx.fxml;
+
 }

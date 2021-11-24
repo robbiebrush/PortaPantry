@@ -17,6 +17,14 @@ public class Food {
         this.expiryDate = expiryDate;
     }
 
+    public Food(String name, int foodGroup, int foodAllergy, String amount, String expiryDate) {
+        this.name = name;
+        this.foodGroup = foodGroup;
+        this.foodAllergy = foodAllergy;
+        this.amount = amount;
+        this.expiryDate = expiryDate;
+    }
+
     public int getId() {
             return id;
         }

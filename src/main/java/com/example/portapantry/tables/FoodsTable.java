@@ -17,6 +17,25 @@ public class FoodsTable implements FoodDOA {
     ArrayList<Food> foods;
 
     @Override
+    public void createFood(Food food) {
+        String query = "INSERT INTO " + DBTableValues.TABLE_FOODS +
+                "(" + DBTableValues.FOODS_COLUMN_NAME + ", " +
+                DBTableValues.FOODS_COLUMN_FOOD_GROUP + ", " +
+                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + ", " +
+                DBTableValues.FOODS_COLUMN_AMOUNT + ", " +
+                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + ") VALUES ('" +
+                food.getName() + "','" + food.getFoodGroup() + "','" +
+                food.getFoodAllergy() + "','" + food.getAmount() + "','" +
+                food.getExpiryDate() + "')";
+        try {
+            db.getConnection().createStatement().execute(query);
+            System.out.println("Inserted Record");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public ArrayList<Food> getAllFoods() {
         //SELECT * FROM FOODS
         String query = "SELECT * FROM " + DBTableValues.TABLE_FOODS;
@@ -41,27 +60,6 @@ public class FoodsTable implements FoodDOA {
         }
         return foods;
     }
-
-    @Override
-    public void createFood(Food food) {
-        String query = "INSERT INTO " + DBTableValues.TABLE_FOODS +
-                "(" + DBTableValues.FOODS_COLUMN_NAME + ", " +
-                DBTableValues.FOODS_COLUMN_FOOD_GROUP + ", " +
-                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + ", " +
-                DBTableValues.FOODS_COLUMN_AMOUNT + ", " +
-                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + ") VALUES ('" +
-                food.getName() + "','" + food.getFoodGroup() + "','" +
-                food.getFoodAllergy() + "','" + food.getAmount() + "','" +
-                food.getExpiryDate() + "')";
-        try {
-            db.getConnection().createStatement().execute(query);
-            System.out.println("Inserted Record");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 
     @Override
     public Food getFood(int id) {
@@ -104,7 +102,7 @@ public class FoodsTable implements FoodDOA {
     }
 
     @Override
-    public void deleteFood(Food food) {
+    public void deleteFood(int food) {
         String query  = "DELETE FROM " + DBTableValues.TABLE_FOODS + " WHERE " +
                 DBTableValues.FOODS_COLUMN_ID + " = " + food;
         try {

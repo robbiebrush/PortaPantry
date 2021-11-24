@@ -10,9 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class
-
-FoodAllergiesTable implements FoodAllergyDOA {
+public class FoodAllergiesTable implements FoodAllergyDOA {
 
     Database db = Database.getInstance();
     ArrayList<FoodAllergy> foodAllergies;
