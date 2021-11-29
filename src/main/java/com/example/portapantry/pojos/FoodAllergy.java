@@ -4,8 +4,14 @@ public class FoodAllergy {
     private int id;
     private String name;
 
+    //Read
     public FoodAllergy(int id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    //Write
+    public FoodAllergy (String name) {
         this.name = name;
     }
 
@@ -16,4 +22,7 @@ public class FoodAllergy {
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
+
+    @Override
+    public String toString() {return name;}
 }

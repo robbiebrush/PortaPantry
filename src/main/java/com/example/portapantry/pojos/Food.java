@@ -9,22 +9,22 @@ public class Food {
     private String expiryDate;
 
     //Read
-    public Food(int id, String name, int foodGroup, int foodAllergy, String amount, String expiryDate) {
+    public Food(int id, String name, int food_group, int food_allergy, String amount, String expiry_date) {
         this.id = id;
         this.name = name;
-        this.foodGroup = foodGroup;
-        this.foodAllergy = foodAllergy;
+        this.foodGroup = food_group;
+        this.foodAllergy = food_allergy;
         this.amount = amount;
-        this.expiryDate = expiryDate;
+        this.expiryDate = expiry_date;
     }
 
     //Write
-    public Food(String name, int foodGroup, int foodAllergy, String amount, String expiryDate) {
+    public Food(String name, int food_group, int food_allergy, String amount, String expiry_date) {
         this.name = name;
-        this.foodGroup = foodGroup;
-        this.foodAllergy = foodAllergy;
+        this.foodGroup = food_group;
+        this.foodAllergy = food_allergy;
         this.amount = amount;
-        this.expiryDate = expiryDate;
+        this.expiryDate = expiry_date;
     }
 
     public int getId() {
@@ -43,11 +43,11 @@ public class Food {
 
     public int getFoodGroup() { return foodGroup; }
 
-    public void setFoodGroup(int foodGroup) { this.foodGroup = foodGroup; }
+    public void setFoodGroup(int food_group) { this.foodGroup = food_group; }
 
     public int getFoodAllergy() { return foodAllergy; }
 
-    public void setFoodAllergy(int foodFacts) { this.foodAllergy = foodAllergy; }
+    public void setFoodAllergy(int food_allergy) { this.foodAllergy = food_allergy; }
 
     public String getAmount() { return amount; }
 
@@ -55,6 +55,5 @@ public class Food {
 
     public String getExpiryDate() { return expiryDate; }
 
-    public void setExpiryDate(String expiryDate) { this.expiryDate = expiryDate; }
-
+    public void setExpiryDate(String expiry_date) { this.expiryDate = expiry_date; }
 }

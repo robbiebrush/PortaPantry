@@ -2,19 +2,13 @@ package com.example.portapantry;
 
 import com.example.portapantry.database.Database;
 import com.example.portapantry.tabs.AddFoodTab;
-import com.example.portapantry.tabs.RemoveFoodTab;
+import com.example.portapantry.tabs.EditFoodTab;
+import com.example.portapantry.tabs.FoodTab;
 import com.example.portapantry.tabs.StatsFoodTab;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -24,7 +18,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        //Database.getInstance();
+        Database.getInstance();
 
         BorderPane root = new BorderPane();
         //Build a menubar
@@ -44,21 +38,15 @@ public class HelloApplication extends Application {
         tabPane = new TabPane();
         //Create the tabs
         AddFoodTab addFoodTab = AddFoodTab.getInstance();
-        RemoveFoodTab removeFoodTab = RemoveFoodTab.getInstance();
+        FoodTab foodTab = FoodTab.getInstance();
         StatsFoodTab statsFoodTab = StatsFoodTab.getInstance();
-        tabPane.getTabs().addAll(addFoodTab, removeFoodTab, statsFoodTab);
+        tabPane.getTabs().addAll(foodTab, addFoodTab, statsFoodTab);
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-        Text title = new Text();
-        title.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
-        title.setText("Welcome to your PortaPantry!");
-        VBox vbox = new VBox(10);
 
         //Configure tab closing policy
         //Add the menubar and tabpane to pane
-        vbox.getChildren().add(title);
-        root.getChildren().addAll(vbox, tabPane);
-        vbox.setAlignment(Pos.CENTER);
+        root.setCenter(tabPane);
         Scene scene = new Scene(root, 1024, 768);
         stage.setTitle("PortaPantry");
         stage.setScene(scene);

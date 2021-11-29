@@ -19,7 +19,7 @@ public class AddFoodTab extends Tab {
     private static AddFoodTab tab;
 
     private AddFoodTab(){
-        this.setText("Add Item");
+        this.setText("Add Food");
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
         FoodAllergiesTable foodAllergiesTable = new FoodAllergiesTable();
         FoodsTable foodsTable = new FoodsTable();
@@ -27,25 +27,25 @@ public class AddFoodTab extends Tab {
         GridPane root = new GridPane();
 
         Text labelName = new Text("Food: ");
-        root.add(labelName, 0,4);
+        root.add(labelName, 0,0);
         TextField name = new TextField();
-        root.add(name, 1,4);
+        root.add(name, 1,0);
 
         Text foodGroup = new Text("Food Group: ");
-        root.add(foodGroup,0,0);
+        root.add(foodGroup,0,2);
         ComboBox<FoodGroup> comboGroup = new ComboBox<>();
         comboGroup.setItems(
                 FXCollections.observableArrayList(foodGroupsTable.getAllFoodGroups())
         );
-        root.add(comboGroup, 1, 0);
+        root.add(comboGroup, 1, 2);
 
         Text foodAllergy = new Text("Food Allergy: ");
-        root.add(foodAllergy, 0,2);
+        root.add(foodAllergy, 0,3);
         ComboBox<FoodAllergy> comboAllergy = new ComboBox<>();
         comboAllergy.setItems(
                 FXCollections.observableArrayList(foodAllergiesTable.getAllFoodAllergies())
         );
-        root.add(comboAllergy, 1,2);
+        root.add(comboAllergy, 1,3);
 
         Text labelAmount = new Text("Amount: ");
         root.add(labelAmount, 0,4);
@@ -53,9 +53,9 @@ public class AddFoodTab extends Tab {
         root.add(amount, 1,4);
 
         Text labelExpiry = new Text("Expiry Date: ");
-        root.add(labelExpiry, 0,4);
+        root.add(labelExpiry, 0,5);
         TextField expiry = new TextField();
-        root.add(expiry, 1,4);
+        root.add(expiry, 1,5);
 
         Button submit = new Button("Add Food");
         submit.setOnAction(e->{
@@ -67,12 +67,10 @@ public class AddFoodTab extends Tab {
                     String.valueOf(expiry.getText()));
                     foodsTable.createFood(food);
                     StatsFoodTab.getInstance().generateChart();
-                    RemoveFoodTab.getInstance().refreshTable();
+                    FoodTab.getInstance().refreshTable();
         });
-        root.add(submit,0,5);
+        root.add(submit,0,6);
         this.setContent(root);
-
-
     }
 
     public static AddFoodTab getInstance(){

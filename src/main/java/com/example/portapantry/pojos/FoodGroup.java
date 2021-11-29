@@ -4,11 +4,16 @@ public class FoodGroup {
     private int id;
     private String name;
 
+    //Read
     public FoodGroup(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
+    //Write
+    public FoodGroup(String name) {
+        this.name = name;
+    }
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
@@ -17,4 +22,6 @@ public class FoodGroup {
 
     public void setName(String name) { this.name = name; }
 
+    @Override
+    public String toString() {return name;}
 }

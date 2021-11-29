@@ -18,14 +18,14 @@ import javafx.scene.layout.HBox;
 
 import java.util.ArrayList;
 
-public class RemoveFoodTab extends Tab{
+public class FoodTab extends Tab{
 
-    private static RemoveFoodTab tab;
+    private static FoodTab tab;
     public TableView tableView;
     PieChart chart;
 
-    private RemoveFoodTab(){
-        this.setText("Remove Food");
+    private FoodTab(){
+        this.setText("Your Food");
         FoodsTable foodsTable = new FoodsTable();
         BorderPane root = new BorderPane();
         tableView = new TableView();
@@ -48,33 +48,31 @@ public class RemoveFoodTab extends Tab{
 
         TableColumn<DisplayFood, String> column5 =
                 new TableColumn<>("Expiry Date");
-        column4.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getAmount()));
+        column5.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getExpiryDate()));
 
-        tableView.getColumns().addAll(column1, column2, column3, column4);
+        tableView.getColumns().addAll(column1, column2, column3, column4, column5);
         tableView.getItems().addAll(foodsTable.getPrettyFoods());
 
         root.setCenter(tableView);
+
+        Button updateButton = new Button("Edit Food");
+        updateButton.setOnAction(e->{
+            DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
+            EditFoodTab editFoodTab = new EditFoodTab(food);
+            HelloApplication.tabPane.getTabs().add(editFoodTab);
+            HelloApplication.tabPane.getSelectionModel().select(editFoodTab);
+            refreshTable();
+            StatsFoodTab.getInstance().generateChart();
+        });
+
         Button removeButton = new Button("Remove Food");
         removeButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
             foodsTable.deleteFood(food.getId());
             refreshTable();
-            generateChart();
+            StatsFoodTab.getInstance().generateChart();
         });
 
-        chart = new PieChart();
-        chart.setTitle("All Coins Found");
-        chart.setLabelsVisible(true);
-        root.setRight(chart);
-        generateChart();
-
-        Button updateButton = new Button("Update");
-        updateButton.setOnAction(e->{
-            DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
-            EditFood tab = new EditFood(food);
-            HelloApplication.tabPane.getTabs().add(tab);
-            HelloApplication.tabPane.getSelectionModel().select(tab);
-        });
         HBox buttons = new HBox();
         buttons.getChildren().addAll(removeButton, updateButton);
         root.setBottom(buttons);
@@ -82,9 +80,9 @@ public class RemoveFoodTab extends Tab{
         this.setContent(root);
     }
 
-    public static RemoveFoodTab getInstance(){
+    public static FoodTab getInstance(){
         if(tab == null){
-            tab = new RemoveFoodTab();
+            tab = new FoodTab();
         }
         return tab;
     }
@@ -93,26 +91,5 @@ public class RemoveFoodTab extends Tab{
         FoodsTable table = new FoodsTable();
         tableView.getItems().clear();
         tableView.getItems().addAll(table.getPrettyFoods());
-    }
-    public void generateChart(){
-        FoodsTable foodsTable = new FoodsTable();
-        FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
-
-        //Grab a list of the food groups
-        ArrayList<FoodGroup> foodGroups = foodGroupsTable.getAllFoodGroups();
-
-        ArrayList<PieChart.Data> data = new ArrayList<>();
-
-        for (FoodGroup foodGroup : foodGroups) {
-            double count = foodsTable.getFoodGroupCount(foodGroup.getId());
-            if (count > 0) {
-                data.add(new PieChart.Data(foodGroup.getName(), count));
-            }
-        }
-
-        ObservableList<PieChart.Data> chartDate =
-                FXCollections.observableArrayList(data);
-
-        chart.setData(chartDate);
     }
 }

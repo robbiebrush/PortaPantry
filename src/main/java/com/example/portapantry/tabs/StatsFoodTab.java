@@ -16,10 +16,10 @@ public class StatsFoodTab extends Tab {
     public PieChart chart;
 
     private StatsFoodTab() {
-        this.setText("Statistics");
+        this.setText("Food Groups");
         BorderPane root = new BorderPane();
         chart = new PieChart();
-        chart.setTitle("All Foods");
+        chart.setTitle("Food Groups");
         chart.setLabelsVisible(true);
         root.setCenter(chart);
         generateChart();
