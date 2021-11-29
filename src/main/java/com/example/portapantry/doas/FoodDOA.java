@@ -11,5 +11,8 @@ public interface FoodDOA {
     public Food getFood(int id);
     public void updateFood(Food food);
     public void deleteFood(int food);
+<<<<<<< HEAD
 
+=======
+>>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
 }
