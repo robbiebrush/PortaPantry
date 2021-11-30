@@ -86,12 +86,12 @@ public class FoodsTable implements FoodDOA {
     @Override
     public void updateFood(Food food) {
         String query = "UPDATE " + DBTableValues.TABLE_FOODS + " SET " +
-                DBTableValues.FOODS_COLUMN_NAME + "= " + food.getName() +  ", " +
-                DBTableValues.FOODS_COLUMN_FOOD_GROUP + "= " + food.getFoodGroup() +  ", " +
-                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + "= " + food.getFoodAllergy() + ", " +
-                DBTableValues.FOODS_COLUMN_AMOUNT + "= " + food.getAmount() + ", " +
-                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + "= " + food.getExpiryDate() +
-                " WHERE " + DBTableValues.FOODS_COLUMN_ID + "= " + food.getId();
+                DBTableValues.FOODS_COLUMN_NAME + " = '" + food.getName() +  "', " +
+                DBTableValues.FOODS_COLUMN_FOOD_GROUP + " = " + food.getFoodGroup() +  ", " +
+                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + " = " + food.getFoodAllergy() + ", " +
+                DBTableValues.FOODS_COLUMN_AMOUNT + " = '" + food.getAmount() + "', " +
+                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + " = '" + food.getExpiryDate() +
+                "' WHERE " + DBTableValues.FOODS_COLUMN_ID + " = " + food.getId();
         try {
             Statement updateFood = db.getConnection().createStatement();
             updateFood.executeUpdate(query);
