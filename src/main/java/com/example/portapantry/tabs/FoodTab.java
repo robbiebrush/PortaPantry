@@ -55,8 +55,8 @@ public class FoodTab extends Tab{
 
         root.setCenter(tableView);
 
-        Button updateButton = new Button("Edit Food");
-        updateButton.setOnAction(e->{
+        Button editButton = new Button("Edit Food");
+        editButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
             EditFoodTab editFoodTab = new EditFoodTab(food);
             HelloApplication.tabPane.getTabs().add(editFoodTab);
@@ -74,7 +74,7 @@ public class FoodTab extends Tab{
         });
 
         HBox buttons = new HBox();
-        buttons.getChildren().addAll(removeButton, updateButton);
+        buttons.getChildren().addAll(editButton, removeButton);
         root.setBottom(buttons);
 
         this.setContent(root);
