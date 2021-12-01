@@ -20,7 +20,9 @@ public class UpdateFood extends Tab {
         FoodAllergiesTable foodAllergiesTable = new FoodAllergiesTable();
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
         FoodsTable foodsTable = new FoodsTable();
+
         Food updateFood = foodsTable.getFood(food.getId());
+
         GridPane root = new GridPane();
         Text name = new Text("Food Name: ");
         root.add(name,0,0);

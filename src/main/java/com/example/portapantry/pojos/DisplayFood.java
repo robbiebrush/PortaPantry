@@ -45,9 +45,9 @@ public class DisplayFood {
     public String toString() {
         return "" +
                 "name='" + name + '\'' +
-                ", food group='" + foodGroup + '\'' +
-                ", food allergy='" + foodAllergy + '\'' +
+                ", food_group='" + foodGroup + '\'' +
+                ", food_allergy='" + foodAllergy + '\'' +
                 ", amount='" + amount + '\'' +
-                ", expiry date='" + expiryDate;
+                ", expiry_date='" + expiryDate;
     }
 }
