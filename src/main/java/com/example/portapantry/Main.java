@@ -11,7 +11,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -40,30 +43,40 @@ public class Main extends Application {
         Scene mainScene = new Scene(mainRoot, 1024, 768);
 
         //Login scene
-        GridPane loginRoot = new GridPane();
+        BorderPane loginRoot = new BorderPane();
+        VBox loginContent = new VBox();
 
+        HBox welcome = new HBox();
         Text labelWelcome = new Text("Welcome to PortaPantry");
+        labelWelcome.setTextAlignment(TextAlignment.CENTER);
+        welcome.getChildren().add(labelWelcome);
+        welcome.setAlignment(Pos.CENTER);
 
-        loginRoot.add(labelWelcome, 0, 0);
-
+        HBox instructs = new HBox();
         Text labelInstructions = new Text("Please enter your database,\nusername, and password.");
-        loginRoot.add(labelInstructions, 0, 1);
+        labelInstructions.setTextAlignment(TextAlignment.CENTER);
+        instructs.getChildren().add(labelInstructions);
+        instructs.setAlignment(Pos.CENTER);
 
+        HBox dbInput = new HBox();
         Text labelDB = new Text("Database: ");
-        loginRoot.add(labelDB, 0,2);
         TextField db = new TextField();
-        loginRoot.add(db, 1,2);
+        dbInput.getChildren().addAll(labelDB, db);
+        dbInput.setAlignment(Pos.CENTER);
 
+        HBox userInput = new HBox();
         Text labelUser = new Text("Username: ");
-        loginRoot.add(labelUser, 0,3);
         TextField user = new TextField();
-        loginRoot.add(user, 1,3);
+        userInput.getChildren().addAll(labelUser, user);
+        userInput.setAlignment(Pos.CENTER);
 
+        HBox passInput = new HBox();
         Text labelPass = new Text("Password: ");
-        loginRoot.add(labelPass, 0,4);
         TextField pass = new TextField();
-        loginRoot.add(pass, 1,4);
+        passInput.getChildren().addAll(labelPass, pass);
+        passInput.setAlignment(Pos.CENTER);
 
+        HBox button = new HBox();
         Button loginButt = new Button("Login");
         loginButt.setOnAction(e->{
             DBConsts.DB_NAME = String.valueOf(db.getText());
@@ -79,8 +92,14 @@ public class Main extends Application {
             stage.setScene(mainScene);
             stage.show();
         });
-        loginRoot.add(loginButt,0,5);
-        loginRoot.setAlignment(Pos.CENTER);
+        loginButt.setAlignment(Pos.CENTER);
+        button.getChildren().add(loginButt);
+        button.setAlignment(Pos.CENTER);
+
+        loginContent.getChildren().addAll(welcome, instructs, dbInput, userInput, passInput, button);
+        loginContent.setAlignment(Pos.CENTER);
+
+        loginRoot.setCenter(loginContent);
 
         Scene loginScene = new Scene(loginRoot, 1024, 768);
         stage.setTitle("PortaPantry Login");
