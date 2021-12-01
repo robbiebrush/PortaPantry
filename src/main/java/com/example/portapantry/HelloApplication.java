@@ -11,25 +11,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-<<<<<<< HEAD
 /**
  * Javafx Class HelloApplication
  * displays the main GUI screen
  */
-=======
->>>>>>> cbc0a7c69b4c6611d5d41c809afe784e4cff3a56
 public class HelloApplication extends Application {
     public static TabPane tabPane;
     @Override
     public void start(Stage stage) throws Exception {
-<<<<<<< HEAD
 
-=======
-//        CoinTable coinTable = new CoinTable();
-//        for (Coin coin: coinTable.getAllCoins()) {
-//            System.out.println(coin.getName());
-//        }
->>>>>>> cbc0a7c69b4c6611d5d41c809afe784e4cff3a56
         BorderPane root = new BorderPane();
         //Build a menubar
         MenuBar menu = new MenuBar();
@@ -54,11 +44,8 @@ public class HelloApplication extends Application {
         //Add the menubar and tabpane to pane
         root.setCenter(tabPane);
         Scene scene = new Scene(root, 1024, 768);
-<<<<<<< HEAD
         stage.setTitle("Portapantry");
-=======
         stage.setTitle("Hello!");
->>>>>>> cbc0a7c69b4c6611d5d41c809afe784e4cff3a56
         stage.setScene(scene);
         stage.show();
     }
@@ -66,11 +53,5 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
-<<<<<<< HEAD
 }
 
-
-
-=======
-}
->>>>>>> cbc0a7c69b4c6611d5d41c809afe784e4cff3a56
