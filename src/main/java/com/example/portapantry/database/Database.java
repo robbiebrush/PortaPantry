@@ -61,7 +61,7 @@ public class Database {
         //Get database information
         DatabaseMetaData md = connection.getMetaData();
         //Looking for the table with tableName
-        ResultSet resultSet = md.getTables("rbrushjava",
+        ResultSet resultSet = md.getTables("smarcetamd",
                 null, tableName, null);
         //If the table is present
         if(resultSet.next()){

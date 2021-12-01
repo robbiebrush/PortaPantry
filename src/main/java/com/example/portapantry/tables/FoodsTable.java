@@ -91,17 +91,11 @@ public class FoodsTable implements FoodDOA {
                 DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + "= " + food.getFoodAllergy() + ", " +
                 DBTableValues.FOODS_COLUMN_AMOUNT + "= " + food.getAmount() + ", " +
                 DBTableValues.FOODS_COLUMN_EXPIRY_DATE + "= " + food.getExpiryDate() +
-<<<<<<< HEAD
                 " WHERE " + DBTableValues.FOODS_COLUMN_ID + " = " + food.getId();
-        try {
-            Statement updateItem = db.getConnection().createStatement();
-            updateItem.executeUpdate(query);
-=======
-                " WHERE " + DBTableValues.FOODS_COLUMN_ID + "= " + food.getId();
         try {
             Statement updateFood = db.getConnection().createStatement();
             updateFood.executeUpdate(query);
->>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
+
             System.out.println("Record Updated");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -121,22 +115,8 @@ public class FoodsTable implements FoodDOA {
     }
 
     public ArrayList<DisplayFood> getPrettyFoods(){
-        ArrayList<DisplayFood> foods = new ArrayList<DisplayFood>();
-<<<<<<< HEAD
-        String query = "SELECT Foods.id, Foods.name, FoodGroup.name AS food_group, " +
-                " FoodAllergy.name as food_allergy, Foods.amount, Foods.expiry_date" +
-                " from Foods " +
-                "JOIN FoodGroup on Foods.food_group = FoodGroup.id " +
-                "JOIN FoodAllergy on Foods.food_allergy = FoodAllergy.id " +
-                "ORDER BY item.id ASC";
-        try {
-            Statement getItems = db.getConnection().createStatement();
-            ResultSet data = getItems.executeQuery(query);
-            while(data.next()) {
-                foods.add(new DisplayFood(data.getInt("id"),
-                        data.getString("name"),
-                        data.getString("food_group)"),
-=======
+        ArrayList<DisplayFood> foods = new ArrayList<>();
+
         String query = "SELECT Foods.id, Foods.name, Food_Groups.name AS food_group," +
                 " Food_Allergies.name AS food_allergy, Foods.amount, Foods.expiry_date" +
                 " from Foods " +
@@ -150,7 +130,6 @@ public class FoodsTable implements FoodDOA {
                 foods.add(new DisplayFood(data.getInt("id"),
                         data.getString("name"),
                         data.getString("food_group"),
->>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
                         data.getString("food_allergy"),
                         data.getString("amount"),
                         data.getString("expiry_date")));
@@ -166,11 +145,9 @@ public class FoodsTable implements FoodDOA {
         try {
             PreparedStatement getCount = db.getConnection()
                     .prepareStatement("SELECT * FROM " + DBTableValues.TABLE_FOODS + " WHERE "
-<<<<<<< HEAD
-                                    + DBTableValues.FOODS_COLUMN_NAME + " = '" + foodGroup + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
-=======
+
                                     + DBTableValues.FOODS_COLUMN_FOOD_GROUP + " = '" + foodGroup + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
->>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
+
                             ResultSet.CONCUR_UPDATABLE);
             ResultSet data = getCount.executeQuery();
             data.last();
