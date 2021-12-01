@@ -19,12 +19,10 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-<<<<<<< HEAD
+
 dependencies {
     implementation "mysql:mysql-connector-java:8.0.26"
 }
-=======
->>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
 
 ext {
     junitVersion = '5.7.1'
@@ -49,11 +47,7 @@ javafx {
 
 dependencies {
     implementation('org.controlsfx:controlsfx:11.1.0')
-<<<<<<< HEAD
-
-=======
     implementation "mysql:mysql-connector-java:8.0.26"
->>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

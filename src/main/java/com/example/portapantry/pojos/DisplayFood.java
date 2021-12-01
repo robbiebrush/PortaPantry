@@ -45,16 +45,9 @@ public class DisplayFood {
     public String toString() {
         return "" +
                 "name='" + name + '\'' +
-<<<<<<< HEAD
                 ", food group='" + foodGroup + '\'' +
                 ", food allergy='" + foodAllergy + '\'' +
                 ", amount='" + amount + '\'' +
                 ", expiry date='" + expiryDate;
-=======
-                ", food_group='" + foodGroup + '\'' +
-                ", food_allergy='" + foodAllergy + '\'' +
-                ", amount='" + amount + '\'' +
-                ", expiry_date='" + expiryDate;
->>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
     }
 }

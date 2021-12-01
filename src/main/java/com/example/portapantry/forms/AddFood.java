@@ -23,7 +23,6 @@ public class AddFood extends Tab {
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
         FoodsTable foodsTable = new FoodsTable();
 
-
         GridPane root = new GridPane();
 
         Text LabelName = new Text("Food Name: ");
