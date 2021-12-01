@@ -23,13 +23,12 @@ public class AddFood extends Tab {
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
         FoodsTable foodsTable = new FoodsTable();
 
-
         GridPane root = new GridPane();
 
         Text LabelName = new Text("Food Name: ");
-        root.add(LabelName,0,4);
+        root.add(LabelName,0,0);
         TextField name = new TextField();
-        root.add(name, 1,4);
+        root.add(name, 1,0);
 
         Text foodGroup = new Text("Food Group: ");
         root.add(foodGroup, 0,2);
@@ -53,9 +52,9 @@ public class AddFood extends Tab {
         root.add(amount, 1,4);
 
         Text labelYear = new Text("Expiry Date:");
-        root.add(labelYear, 0,4);
+        root.add(labelYear, 0,5);
         TextField expiryDate = new TextField();
-        root.add(expiryDate, 1,4);
+        root.add(expiryDate, 1,5);
 
         Button submit = new Button("Submit");
         submit.setOnAction(e->{
@@ -65,11 +64,11 @@ public class AddFood extends Tab {
                     comboFoodAllergy.getSelectionModel().getSelectedItem().getId(),
                     String.valueOf(amount.getText()),
                     String.valueOf(expiryDate.getText()));
-            foodsTable.createFood(food);
-            StatisticsTab.getInstance().generateChart();
-            RemoveFood.getInstance().refreshTable();
+                    foodsTable.createFood(food);
+                    StatisticsTab.getInstance().generateChart();
+                    RemoveFood.getInstance().refreshTable();
         });
-        root.add(submit,0,5);
+        root.add(submit,0,6);
         this.setContent(root);
 
 

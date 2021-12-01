@@ -19,10 +19,7 @@ public class HelloApplication extends Application {
     public static TabPane tabPane;
     @Override
     public void start(Stage stage) throws Exception {
-//        CoinTable coinTable = new CoinTable();
-//        for (Coin coin: coinTable.getAllCoins()) {
-//            System.out.println(coin.getName());
-//        }
+
         BorderPane root = new BorderPane();
         //Build a menubar
         MenuBar menu = new MenuBar();
@@ -47,7 +44,7 @@ public class HelloApplication extends Application {
         //Add the menubar and tabpane to pane
         root.setCenter(tabPane);
         Scene scene = new Scene(root, 1024, 768);
-        stage.setTitle("Hello!");
+        stage.setTitle("Portapantry");
         stage.setScene(scene);
         stage.show();
     }

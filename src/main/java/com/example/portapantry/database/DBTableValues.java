@@ -25,31 +25,53 @@ public class DBTableValues {
 
     public static final String CREATE_TABLE_FOOD_ALLERGIES =
             "CREATE TABLE " + TABLE_FOOD_ALLERGIES + " (" +
-                    ALLERGIES_COLUMN_ID + " int(11) NOT NULL, " +
-                    ALLERGIES_COLUMN_NAME + "varchar(20) NOT NULL, " +
+                    ALLERGIES_COLUMN_ID + " int NOT NULL AUTO_INCREMENT, " +
                     ALLERGIES_COLUMN_NAME + " varchar(20) NOT NULL, " +
                         "PRIMARY KEY(" + ALLERGIES_COLUMN_ID + ")" +
                         ");";
 
+    public static final String POPULATE_TABLE_FOOD_ALLERGIES =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+                    DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES (None)," +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+                    DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES (Nuts)," +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+                    DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES (Sea Food)," +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+                    DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES (Unknown));";
+
     public static final String CREATE_TABLE_FOOD_GROUPS =
             "CREATE TABLE " + TABLE_FOOD_GROUPS + " (" +
-                    GROUPS_COLUMN_ID + " int(11) NOT NULL, " +
+                    GROUPS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT, " +
                     GROUPS_COLUMN_NAME + " varchar(15) NOT NULL, " +
                         "PRIMARY KEY(" + GROUPS_COLUMN_ID + ")" +
                         ");";
 
+    public static final String POPULATE_TABLE_FOOD_GROUPS =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Proteins');" +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Grains');" +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Vegetables');" +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Fruits');" +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Dairy');" +
+                    " INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Other');";
+
     //Table Create Statements
     public static final String CREATE_TABLE_FOODS =
             "CREATE TABLE " + TABLE_FOODS + " (" +
-                    FOODS_COLUMN_ID + " int(11) NOT NULL, " +
+                    FOODS_COLUMN_ID + " int NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
                     FOODS_COLUMN_NAME + " varchar(20) NOT NULL, " +
-                    FOODS_COLUMN_FOOD_GROUP + " int(11) NOT NULL, " +
-                    FOODS_COLUMN_FOOD_ALLERGY + " int(11) NOT NULL, " +
+                    FOODS_COLUMN_FOOD_GROUP + " int NOT NULL, " +
+                    FOODS_COLUMN_FOOD_ALLERGY + " int NOT NULL, " +
                     FOODS_COLUMN_AMOUNT + " varchar(20) NOT NULL, " +
                     FOODS_COLUMN_EXPIRY_DATE + " date NOT NULL, " +
-                    "PRIMARY KEY(" + FOODS_COLUMN_ID + ")" +
-                    "FOREIGN KEY (" + FOODS_COLUMN_FOOD_GROUP + ")" +
+                    " FOREIGN KEY (" + FOODS_COLUMN_FOOD_GROUP + ")" +
                             " REFERENCES " + TABLE_FOOD_GROUPS + "(" + GROUPS_COLUMN_ID +")," +
-                    "FOREIGN KEY (" + FOODS_COLUMN_FOOD_ALLERGY + ")" +
+                    " FOREIGN KEY (" + FOODS_COLUMN_FOOD_ALLERGY + ")" +
                             " REFERENCES " + TABLE_FOOD_ALLERGIES + "(" + ALLERGIES_COLUMN_ID +"));";
 }

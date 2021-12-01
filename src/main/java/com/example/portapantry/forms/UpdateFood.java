@@ -16,18 +16,21 @@ import javafx.scene.text.Text;
 public class UpdateFood extends Tab {
 
     public UpdateFood(DisplayFood food){
+
         this.setText("Update " + food.getName());
         FoodAllergiesTable foodAllergiesTable = new FoodAllergiesTable();
         FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
         FoodsTable foodsTable = new FoodsTable();
         Food updateFood = foodsTable.getFood(food.getId());
+
         GridPane root = new GridPane();
-        Text name = new Text("Food Name: ");
-        root.add(name,0,0);
-        ComboBox<Food> comboName = new ComboBox<>();
-        comboName.setItems(
-                FXCollections.observableArrayList(foodsTable.getAllFoods()));
-        root.add(comboName, 1, 0);
+
+        Text Labelname = new Text("Food Name: ");
+        root.add(Labelname,0,0);
+        Text name = new Text(updateFood.getName());
+        root.add(name, 1, 0);
+
+        root.add(name, 1, 0);
         Text location = new Text("Food Allergies:");
         root.add(location, 0,2);
         ComboBox<FoodAllergy> comboLocation = new ComboBox<>();
@@ -48,7 +51,6 @@ public class UpdateFood extends Tab {
 
         Button submit = new Button("Update Food");
         submit.setOnAction(e->{
-            updateFood.setName(comboName.getSelectionModel().getSelectedItem().getName());
             updateFood.setFoodGroup(comboCondition.getSelectionModel().getSelectedItem().getId());
             updateFood.setFoodAllergy(comboLocation.getSelectionModel().getSelectedItem().getId());
             updateFood.setExpiryDate(String.valueOf(year.getText()));

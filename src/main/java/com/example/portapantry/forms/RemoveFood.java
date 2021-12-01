@@ -47,13 +47,18 @@ public class RemoveFood extends Tab {
         column3.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodAllergy()));
 
         TableColumn<DisplayFood, String> column4 =
-                new TableColumn<>("Expiry Date");
-        column4.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getExpiryDate()));
+                new TableColumn<>("Amount");
+        column4.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getAmount()));
 
-        tableView.getColumns().addAll(column1, column2, column3, column4);
+        TableColumn<DisplayFood, String> column5 =
+                new TableColumn<>("Expiry Date");
+        column5.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getExpiryDate()));
+
+        tableView.getColumns().addAll(column1, column2, column3, column4, column5);
         tableView.getItems().addAll(foodsTable.getPrettyFoods());
 
         root.setCenter(tableView);
+
         Button removeButton = new Button("Remove Food");
         removeButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
