@@ -4,7 +4,6 @@ public class FoodAllergy {
     private int id;
     private String name;
 
-
     //Read
     public FoodAllergy(int id, String name) {
         this.id = id;

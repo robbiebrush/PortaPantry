@@ -3,7 +3,7 @@ package com.example.portapantry.database;
 public class DBTableValues {
 
     //Foods TABLE
-    public static final String TABLE_FOODS = "Foods";
+    public static final String TABLE_FOODS = "foods";
     public static final String FOODS_COLUMN_ID = "id";
     public static final String FOODS_COLUMN_NAME = "name";
 
@@ -39,6 +39,7 @@ public class DBTableValues {
                     DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES (Sea Food)," +
                     " INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
                     DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES (Unknown));";
+
 
     public static final String CREATE_TABLE_FOOD_GROUPS =
             "CREATE TABLE " + TABLE_FOOD_GROUPS + " (" +

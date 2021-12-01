@@ -17,18 +17,20 @@ public class Database {
                                 DBConsts.DB_USER,
                                 DBConsts.DB_PASS);
                 System.out.println("Created Connection");
-                //Create the food_groups table
-                createTable(DBTableValues.TABLE_FOOD_GROUPS,
-                        DBTableValues.CREATE_TABLE_FOOD_GROUPS, connection);
-                //Populate the food_allergies table
-                populateTable(DBTableValues.TABLE_FOOD_ALLERGIES,
-                        DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
-                //Populate the food_groups table
 
                 //Create the food_allergies table
                 createTable(DBTableValues.TABLE_FOOD_ALLERGIES,
                         DBTableValues.CREATE_TABLE_FOOD_ALLERGIES, connection);
 
+                //Create the food_groups table
+                createTable(DBTableValues.TABLE_FOOD_GROUPS,
+                        DBTableValues.CREATE_TABLE_FOOD_GROUPS, connection);
+
+                //Populate the food_allergies table
+                populateTable(DBTableValues.TABLE_FOOD_ALLERGIES,
+                        DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
+
+                //Populate the food_groups table
                 populateTable(DBTableValues.TABLE_FOOD_GROUPS,
                         DBTableValues.POPULATE_TABLE_FOOD_GROUPS, connection);
 
@@ -71,7 +73,7 @@ public class Database {
         //Get database information
         DatabaseMetaData md = connection.getMetaData();
         //Looking for the table with tableName
-        ResultSet resultSet = md.getTables("smarcetamd",
+        ResultSet resultSet = md.getTables("smarcetajava",
                 null, tableName, null);
         //If the table is present
         if(resultSet.next()){

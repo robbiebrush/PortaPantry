@@ -70,11 +70,11 @@ public class FoodsTable implements FoodDOA {
             ResultSet data = getFood.executeQuery(query);
             if(data.next()){
                 Food food =  new Food(data.getInt(DBTableValues.ALLERGIES_COLUMN_ID),
-                                data.getString(DBTableValues.ALLERGIES_COLUMN_NAME),
-                                data.getInt(DBTableValues.FOODS_COLUMN_FOOD_GROUP),
-                                data.getInt(DBTableValues.FOODS_COLUMN_FOOD_ALLERGY),
-                                data.getString(DBTableValues.FOODS_COLUMN_AMOUNT),
-                                data.getString(DBTableValues.FOODS_COLUMN_EXPIRY_DATE));
+                        data.getString(DBTableValues.ALLERGIES_COLUMN_NAME),
+                        data.getInt(DBTableValues.FOODS_COLUMN_FOOD_GROUP),
+                        data.getInt(DBTableValues.FOODS_COLUMN_FOOD_ALLERGY),
+                        data.getString(DBTableValues.FOODS_COLUMN_AMOUNT),
+                        data.getString(DBTableValues.FOODS_COLUMN_EXPIRY_DATE));
                 return food;
             }
         } catch (SQLException e) {
@@ -86,16 +86,15 @@ public class FoodsTable implements FoodDOA {
     @Override
     public void updateFood(Food food) {
         String query = "UPDATE " + DBTableValues.TABLE_FOODS + " SET " +
-                DBTableValues.FOODS_COLUMN_NAME + "= " + food.getName() +  ", " +
-                DBTableValues.FOODS_COLUMN_FOOD_GROUP + "= " + food.getFoodGroup() +  ", " +
-                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + "= " + food.getFoodAllergy() + ", " +
-                DBTableValues.FOODS_COLUMN_AMOUNT + "= " + food.getAmount() + ", " +
-                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + "= " + food.getExpiryDate() +
-                " WHERE " + DBTableValues.FOODS_COLUMN_ID + " = " + food.getId();
+                DBTableValues.FOODS_COLUMN_NAME + " = '" + food.getName() +  "', " +
+                DBTableValues.FOODS_COLUMN_FOOD_GROUP + " = " + food.getFoodGroup() +  ", " +
+                DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + " = " + food.getFoodAllergy() + ", " +
+                DBTableValues.FOODS_COLUMN_AMOUNT + " = '" + food.getAmount() + "', " +
+                DBTableValues.FOODS_COLUMN_EXPIRY_DATE + " = '" + food.getExpiryDate() +
+                "' WHERE " + DBTableValues.FOODS_COLUMN_ID + " = " + food.getId();
         try {
             Statement updateFood = db.getConnection().createStatement();
             updateFood.executeUpdate(query);
-
             System.out.println("Record Updated");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -115,8 +114,7 @@ public class FoodsTable implements FoodDOA {
     }
 
     public ArrayList<DisplayFood> getPrettyFoods(){
-        ArrayList<DisplayFood> foods = new ArrayList<>();
-
+        ArrayList<DisplayFood> foods = new ArrayList<DisplayFood>();
         String query = "SELECT Foods.id, Foods.name, Food_Groups.name AS food_group," +
                 " Food_Allergies.name AS food_allergy, Foods.amount, Foods.expiry_date" +
                 " from Foods " +
@@ -145,9 +143,7 @@ public class FoodsTable implements FoodDOA {
         try {
             PreparedStatement getCount = db.getConnection()
                     .prepareStatement("SELECT * FROM " + DBTableValues.TABLE_FOODS + " WHERE "
-
                                     + DBTableValues.FOODS_COLUMN_FOOD_GROUP + " = '" + foodGroup + "'", ResultSet.TYPE_SCROLL_SENSITIVE,
-
                             ResultSet.CONCUR_UPDATABLE);
             ResultSet data = getCount.executeQuery();
             data.last();
