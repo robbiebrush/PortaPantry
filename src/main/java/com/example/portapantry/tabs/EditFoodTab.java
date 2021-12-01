@@ -1,6 +1,6 @@
 package com.example.portapantry.tabs;
 
-import com.example.portapantry.HelloApplication;
+import com.example.portapantry.Main;
 import com.example.portapantry.pojos.DisplayFood;
 import com.example.portapantry.pojos.Food;
 import com.example.portapantry.pojos.FoodAllergy;
@@ -9,13 +9,10 @@ import com.example.portapantry.tables.FoodAllergiesTable;
 import com.example.portapantry.tables.FoodGroupsTable;
 import com.example.portapantry.tables.FoodsTable;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-
-import java.util.ArrayList;
 
 public class EditFoodTab extends Tab{
     private static EditFoodTab tab;
@@ -71,7 +68,7 @@ public class EditFoodTab extends Tab{
             foodsTable.updateFood(updateFood);
             FoodTab.getInstance().refreshTable();
             StatsFoodTab.getInstance().generateChart();
-            HelloApplication.tabPane.getTabs().remove(3);
+            Main.tabPane.getTabs().remove(3);
         });
         root.add(submit,0,6);
         this.setContent(root);
