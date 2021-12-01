@@ -1,13 +1,9 @@
 package com.example.portapantry.tabs;
 
-import com.example.portapantry.HelloApplication;
+import com.example.portapantry.Main;
 import com.example.portapantry.pojos.DisplayFood;
-import com.example.portapantry.pojos.FoodGroup;
-import com.example.portapantry.tables.FoodGroupsTable;
 import com.example.portapantry.tables.FoodsTable;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
@@ -15,14 +11,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-
-import java.util.ArrayList;
+import javafx.scene.text.Text;
 
 public class FoodTab extends Tab{
 
     private static FoodTab tab;
     public TableView tableView;
-    PieChart chart;
 
     private FoodTab(){
         this.setText("Your Food");
@@ -59,8 +53,8 @@ public class FoodTab extends Tab{
         editButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
             EditFoodTab editFoodTab = new EditFoodTab(food);
-            HelloApplication.tabPane.getTabs().add(editFoodTab);
-            HelloApplication.tabPane.getSelectionModel().select(editFoodTab);
+            Main.tabPane.getTabs().add(editFoodTab);
+            Main.tabPane.getSelectionModel().select(editFoodTab);
             refreshTable();
             StatsFoodTab.getInstance().generateChart();
         });
@@ -73,8 +67,10 @@ public class FoodTab extends Tab{
             StatsFoodTab.getInstance().generateChart();
         });
 
+        Text helpText = new Text("**Select a table item before a button**");
+
         HBox buttons = new HBox();
-        buttons.getChildren().addAll(editButton, removeButton);
+        buttons.getChildren().addAll(editButton, removeButton, helpText);
         root.setBottom(buttons);
 
         this.setContent(root);
