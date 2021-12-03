@@ -2,6 +2,9 @@ package com.example.portapantry.database;
 
 import java.sql.*;
 
+import static com.example.portapantry.database.DBTableValues.TABLE_FOOD_ALLERGIES;
+import static com.example.portapantry.database.DBTableValues.TABLE_FOOD_GROUPS;
+
 public class Database {
     private static Database instance;
     private Connection connection = null;
@@ -19,25 +22,16 @@ public class Database {
                 System.out.println("Created Connection");
 
                 //Create the food_allergies table
-                createTable(DBTableValues.TABLE_FOOD_ALLERGIES,
+                createTable(TABLE_FOOD_ALLERGIES,
                         DBTableValues.CREATE_TABLE_FOOD_ALLERGIES, connection);
 
                 //Create the food_groups table
-                createTable(DBTableValues.TABLE_FOOD_GROUPS,
+                createTable(TABLE_FOOD_GROUPS,
                         DBTableValues.CREATE_TABLE_FOOD_GROUPS, connection);
 
-                //Populate the food_allergies table
-                populateTable(DBTableValues.TABLE_FOOD_ALLERGIES,
-                        DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
-
-                //Populate the food_groups table
-                populateTable(DBTableValues.TABLE_FOOD_GROUPS,
-                        DBTableValues.POPULATE_TABLE_FOOD_GROUPS, connection);
-
+                //Create the foods table
                 createTable(DBTableValues.TABLE_FOODS,
                         DBTableValues.CREATE_TABLE_FOODS, connection);
-
-
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -73,7 +67,7 @@ public class Database {
         //Get database information
         DatabaseMetaData md = connection.getMetaData();
         //Looking for the table with tableName
-        ResultSet resultSet = md.getTables("smarcetajava",
+        ResultSet resultSet = md.getTables(DBConsts.DB_NAME,
                 null, tableName, null);
         //If the table is present
         if(resultSet.next()){
@@ -83,20 +77,20 @@ public class Database {
             createTable = connection.createStatement();
             createTable.execute(tableQuery);
             System.out.println("The " + tableName + " table has been inserted");
+            //Populate the food_groups table
+            //populateTable(TABLE_FOOD_GROUPS,
+            //DBTableValues.POPULATE_TABLE_FOOD_GROUPS, connection);
+            //Populate the food_allergies table
+            //populateTable(TABLE_FOOD_ALLERGIES,
+            //DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
         }
     }
 
     private void populateTable(String tableName, String query,
                                Connection connection) throws SQLException {
-        DatabaseMetaData md = connection.getMetaData();
-        ResultSet resultSet = md.getColumns("smarcetajava", null, tableName, null);
-        if(resultSet.next()) {
-            System.out.println(tableName + " is already populated.");
-        } else {
-            Statement statement = connection.createStatement();
-            statement.execute(query);
-            System.out.println("The " + tableName + " has been populated.");
-        }
+        Statement statement = connection.createStatement();
+        statement.execute(query);
+        System.out.println("The " + tableName + " has been populated.");
     }
 }
 
