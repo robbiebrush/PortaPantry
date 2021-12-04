@@ -46,13 +46,13 @@ public class DBTableValues {
                         ");";
 
     public static final String POPULATE_TABLE_FOOD_ALLERGIES =
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+            "INSERT INTO" + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
                     DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('None');" +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+            "INSERT INTO" + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
                     DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Nuts');" +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+            "INSERT INTO" + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
                     DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Sea Food');" +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
+            "INSERT INTO" + DBTableValues.TABLE_FOOD_ALLERGIES + " (" +
                     DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Unknown');";
 
     public static final String CREATE_TABLE_FOOD_GROUPS =
@@ -63,16 +63,16 @@ public class DBTableValues {
                         ");";
 
     public static final String POPULATE_TABLE_FOOD_GROUPS =
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+            "INSERT INTO" + DBTableValues.TABLE_FOOD_GROUPS + " (" +
                     DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Proteins');" +
-                    "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    "INSERT INTO" + DBTableValues.TABLE_FOOD_GROUPS + " (" +
                     DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Grains');" +
-                    "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    "INSERT INTO" + DBTableValues.TABLE_FOOD_GROUPS + " (" +
                     DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Vegetables');" +
-                    "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    "INSERT INTO" + DBTableValues.TABLE_FOOD_GROUPS + " (" +
                     DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Fruits');" +
-                    "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    "INSERT INTO" + DBTableValues.TABLE_FOOD_GROUPS + " (" +
                     DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Dairy');" +
-                    "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" +
+                    "INSERT INTO" + DBTableValues.TABLE_FOOD_GROUPS + " (" +
                     DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Other');";
 }
