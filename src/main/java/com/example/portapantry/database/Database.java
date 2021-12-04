@@ -77,12 +77,31 @@ public class Database {
             createTable = connection.createStatement();
             createTable.execute(tableQuery);
             System.out.println("The " + tableName + " table has been inserted");
-            //Populate the food_groups table
-            //populateTable(TABLE_FOOD_GROUPS,
-                    //DBTableValues.POPULATE_TABLE_FOOD_GROUPS, connection);
-            //Populate the food_allergies table
-            //populateTable(TABLE_FOOD_ALLERGIES,
-                    //DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
+            if (tableName == "food_groups") {
+                //Populate the food_groups table
+                populateTable(TABLE_FOOD_GROUPS,
+                        DBTableValues.INSERT_GROUPS_PROTEINS, connection);
+                populateTable(TABLE_FOOD_GROUPS,
+                        DBTableValues.INSERT_GROUPS_GRAINS, connection);
+                populateTable(TABLE_FOOD_GROUPS,
+                        DBTableValues.INSERT_GROUPS_VEGS, connection);
+                populateTable(TABLE_FOOD_GROUPS,
+                        DBTableValues.INSERT_GROUPS_FRUITS, connection);
+                populateTable(TABLE_FOOD_GROUPS,
+                        DBTableValues.INSERT_GROUPS_DAIRY, connection);
+                populateTable(TABLE_FOOD_GROUPS,
+                        DBTableValues.INSERT_GROUPS_OTHER, connection);
+            } else if (tableName == "food_allergies") {
+                //Populate the food_allergies table
+                populateTable(TABLE_FOOD_ALLERGIES,
+                        DBTableValues.INSERT_ALLERGIES_NONE, connection);
+                populateTable(TABLE_FOOD_ALLERGIES,
+                        DBTableValues.INSERT_ALLERGIES_NUTS, connection);
+                populateTable(TABLE_FOOD_ALLERGIES,
+                        DBTableValues.INSERT_ALLERGIES_SEA_FOOD, connection);
+                populateTable(TABLE_FOOD_ALLERGIES,
+                        DBTableValues.INSERT_ALLERGIES_UNKNOWN, connection);
+            }
         }
     }
 
@@ -90,6 +109,6 @@ public class Database {
                                Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
         statement.execute(query);
-        System.out.println("The " + tableName + " has been populated.");
+        System.out.println("Record added to " + tableName + ".");
     }
 }
