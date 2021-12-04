@@ -20,9 +20,6 @@ public class Database {
                                 DBConsts.DB_USER,
                                 DBConsts.DB_PASS);
                 System.out.println("Created Connection");
-                //Create the foods table
-                createTable(DBTableValues.TABLE_FOODS,
-                        DBTableValues.CREATE_TABLE_FOODS, connection);
 
                 //Create the food_allergies table
                 createTable(TABLE_FOOD_ALLERGIES,
@@ -31,6 +28,10 @@ public class Database {
                 //Create the food_groups table
                 createTable(TABLE_FOOD_GROUPS,
                         DBTableValues.CREATE_TABLE_FOOD_GROUPS, connection);
+
+                //Create the foods table
+                createTable(DBTableValues.TABLE_FOODS,
+                        DBTableValues.CREATE_TABLE_FOODS, connection);
 
             }catch (Exception e){
                 e.printStackTrace();
@@ -66,7 +67,7 @@ public class Database {
         //Get database information
         DatabaseMetaData md = connection.getMetaData();
         //Looking for the table with tableName
-        ResultSet resultSet = md.getTables("rbrushjava",
+        ResultSet resultSet = md.getTables(DBConsts.DB_NAME,
                 null, tableName, null);
         //If the table is present
         if(resultSet.next()){
@@ -77,11 +78,11 @@ public class Database {
             createTable.execute(tableQuery);
             System.out.println("The " + tableName + " table has been inserted");
             //Populate the food_groups table
-            populateTable(TABLE_FOOD_GROUPS,
-                    DBTableValues.POPULATE_TABLE_FOOD_GROUPS, connection);
+            //populateTable(TABLE_FOOD_GROUPS,
+                    //DBTableValues.POPULATE_TABLE_FOOD_GROUPS, connection);
             //Populate the food_allergies table
-            populateTable(TABLE_FOOD_ALLERGIES,
-                    DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
+            //populateTable(TABLE_FOOD_ALLERGIES,
+                    //DBTableValues.POPULATE_TABLE_FOOD_ALLERGIES, connection);
         }
     }
 
