@@ -29,13 +29,12 @@ public class Main extends Application {
         MenuBar menu = new MenuBar();
 
         Menu fileMenu = new Menu("File");
-        Menu creditsMenu = new Menu("Credits");
         MenuItem exit = new MenuItem("Exit");
         exit.setOnAction(e->{
             System.exit(0);
         });
         fileMenu.getItems().add(exit);
-        menu.getMenus().addAll(fileMenu, creditsMenu);
+        menu.getMenus().addAll(fileMenu);
         mainRoot.setTop(menu);
 
         tabPane = new TabPane();

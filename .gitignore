@@ -4,3 +4,4 @@ PortaPantry.iml
 src/main/java/com/example/portapantry/database/DBConsts.java
 .gradle
 /build
+src/main/java/com/example/portapantry/database/userInfo.txt
