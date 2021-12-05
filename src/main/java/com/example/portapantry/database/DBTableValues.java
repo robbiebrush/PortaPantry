@@ -44,10 +44,13 @@ public class DBTableValues {
                         "PRIMARY KEY(" + ALLERGIES_COLUMN_ID + ")" +
                         ");";
 
-    public static final String POPULATE_TABLE_FOOD_ALLERGIES =
-                "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('None');" +
-                        "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Nuts');" +
-                        "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Sea Food');" +
+    public static final String INSERT_ALLERGIES_NONE =
+                "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('None');";
+    public static final String INSERT_ALLERGIES_NUTS =
+                        "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Nuts');";
+    public static final String INSERT_ALLERGIES_SEA_FOOD =
+                        "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Sea Food');";
+    public static final String INSERT_ALLERGIES_UNKNOWN =
                         "INSERT INTO " + DBTableValues.TABLE_FOOD_ALLERGIES + " (" + DBTableValues.ALLERGIES_COLUMN_NAME + ") VALUES ('Unknown');";
 
     public static final String CREATE_TABLE_FOOD_GROUPS =
@@ -57,11 +60,16 @@ public class DBTableValues {
                         "PRIMARY KEY(" + GROUPS_COLUMN_ID + ")" +
                         ");";
 
-    public static final String POPULATE_TABLE_FOOD_GROUPS =
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Proteins'); " +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Grains'); " +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Vegetables'); " +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Fruits');" +
-            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Dairy');" +
+    public static final String INSERT_GROUPS_PROTEINS =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Proteins');";
+    public static final String INSERT_GROUPS_GRAINS =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Grains');";
+    public static final String INSERT_GROUPS_VEGS =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Vegetables');";
+    public static final String INSERT_GROUPS_FRUITS =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Fruits');";
+    public static final String INSERT_GROUPS_DAIRY =
+            "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Dairy');";
+    public static final String INSERT_GROUPS_OTHER =
             "INSERT INTO " + DBTableValues.TABLE_FOOD_GROUPS + " (" + DBTableValues.GROUPS_COLUMN_NAME + ") VALUES ('Other');";
 }
