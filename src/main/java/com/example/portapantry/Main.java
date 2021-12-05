@@ -10,12 +10,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import java.io.*;
 
 public class Main extends Application {
 
@@ -79,9 +79,30 @@ public class Main extends Application {
         HBox button = new HBox();
         Button loginButt = new Button("Login");
         loginButt.setOnAction(e->{
-            DBConsts.DB_NAME = String.valueOf(db.getText());
-            DBConsts.DB_USER = String.valueOf(user.getText());
-            DBConsts.DB_PASS = String.valueOf(pass.getText());
+            try {
+                BufferedWriter bw = new BufferedWriter(new FileWriter(
+                        "src/main/java/com/example/portapantry/database/userInfo.txt"));
+                bw.write(db.getText() + "\n" + user.getText() + "\n" + pass.getText());
+                bw.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            String dbName = "";
+            String dbUser = "";
+            String dbPass = "";
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(
+                        "src/main/java/com/example/portapantry/database/userInfo.txt"));
+                dbName = br.readLine();
+                dbUser = br.readLine();
+                dbPass = br.readLine();
+                br.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            DBConsts.DB_NAME = dbName;
+            DBConsts.DB_USER = dbUser;
+            DBConsts.DB_PASS = dbPass;
             Database.getInstance();
             AddFoodTab addFoodTab = AddFoodTab.getInstance();
             FoodTab foodTab = FoodTab.getInstance();
