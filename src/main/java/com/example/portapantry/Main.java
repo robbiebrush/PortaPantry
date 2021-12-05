@@ -10,7 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -23,6 +22,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         //Main scene
         BorderPane mainRoot = new BorderPane();
         MenuBar menu = new MenuBar();
@@ -100,8 +100,10 @@ public class Main extends Application {
         loginContent.setAlignment(Pos.CENTER);
 
         loginRoot.setCenter(loginContent);
-
         Scene loginScene = new Scene(loginRoot, 1024, 768);
+        mainRoot.getStylesheets().add("/Styles.css");
+        loginScene.getStylesheets().add("/Styles.css");
+
         stage.setTitle("PortaPantry Login");
         stage.setScene(loginScene);
         stage.show();

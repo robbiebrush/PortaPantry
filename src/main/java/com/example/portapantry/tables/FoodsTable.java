@@ -115,12 +115,12 @@ public class FoodsTable implements FoodDOA {
 
     public ArrayList<DisplayFood> getPrettyFoods(){
         ArrayList<DisplayFood> foods = new ArrayList<DisplayFood>();
-        String query = "SELECT Foods.id, Foods.name, Food_Groups.name AS food_group," +
-                " Food_Allergies.name AS food_allergy, Foods.amount, Foods.expiry_date" +
-                " from Foods " +
-                "JOIN Food_Groups on Foods.food_group = Food_Groups.id " +
-                "JOIN Food_Allergies on Foods.food_allergy = Food_Allergies.id " +
-                "ORDER BY Foods.id ASC";
+        String query = "SELECT foods.id, foods.name, food_groups.name AS food_group," +
+                " food_allergies.name AS food_allergy, foods.amount, foods.expiry_date" +
+                " from foods " +
+                "JOIN food_groups on foods.food_group = food_groups.id " +
+                "JOIN food_allergies on foods.food_allergy = food_allergies.id " +
+                "ORDER BY foods.id ASC";
         try {
             Statement getFoods = db.getConnection().createStatement();
             ResultSet data = getFoods.executeQuery(query);
