@@ -25,10 +25,6 @@ Authors: Robbie Brush, Stefan Marceta.
 
 License: 2021 RBrush & SMarceta.
 
-Authors: Robbie Brush, Stephon, Adam
-
-License:
-
 Acknowledgements:
                     
                 
