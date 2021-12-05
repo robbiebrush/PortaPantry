@@ -13,7 +13,7 @@ You will also be able to navigate the tab menu to go add foods, edit foods, dele
 and view your food groups chart. At anytime, you can close PortaPantry with the exit button in the
 menu bar.
 
-Prerequisites: You will need an accessible Maria DB and javafx 16 to use the program.
+Prerequisites: You will need an accessible Maria DB and javafx 16 to use the program as well as a internet connection.
 
 Screen Shots: https://github.com/robbiebrush/PortaPantry/issues/17
 
@@ -25,6 +25,19 @@ Authors: Robbie Brush, Stefan Marceta.
 
 License: 2021 RBrush & SMarceta.
 
-Acknowledgements:
+Acknowledgements: list of all open sources that contributed to the completion of this project
+
+https://github.com/
+
+www.StClairCollege.com
+
+https://www.jetbrains.com/idea/
+
+https://phpmyadmin.scweb.ca/
+
+https://mariadb.org/
+
+
+
                     
                 
