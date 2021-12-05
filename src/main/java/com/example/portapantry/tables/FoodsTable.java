@@ -24,8 +24,8 @@ public class FoodsTable implements FoodDOA {
                 DBTableValues.FOODS_COLUMN_FOOD_ALLERGY + ", " +
                 DBTableValues.FOODS_COLUMN_AMOUNT + ", " +
                 DBTableValues.FOODS_COLUMN_EXPIRY_DATE + ") VALUES ('" +
-                food.getName() + "','" + food.getFoodGroup() + "','" +
-                food.getFoodAllergy() + "','" + food.getAmount() + "','" +
+                food.getName() + "'," + food.getFoodGroup() + "," +
+                food.getFoodAllergy() + ",'" + food.getAmount() + "','" +
                 food.getExpiryDate() + "')";
         try {
             db.getConnection().createStatement().execute(query);
