@@ -1,6 +1,6 @@
 package com.example.portapantry.tabs;
 
-import com.example.portapantry.HelloApplication;
+import com.example.portapantry.Main;
 import com.example.portapantry.pojos.DisplayFood;
 import com.example.portapantry.pojos.FoodGroup;
 import com.example.portapantry.tables.FoodGroupsTable;
@@ -72,8 +72,8 @@ public class RemoveFoodTab extends Tab{
         updateButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
             EditFood tab = new EditFood(food);
-            HelloApplication.tabPane.getTabs().add(tab);
-            HelloApplication.tabPane.getSelectionModel().select(tab);
+            Main.tabPane.getTabs().add(tab);
+            Main.tabPane.getSelectionModel().select(tab);
         });
         HBox buttons = new HBox();
         buttons.getChildren().addAll(removeButton, updateButton);

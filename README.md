@@ -15,15 +15,15 @@ Getting Started: On application start up, you will be provided with a credential
 
 Prerequisites: You will need an accessible Maria DB and javafx 16 to use the program.
 
-Screen Shots:
+Screen Shots: https://github.com/robbiebrush/PortaPantry/issues/17
 
 DB Schema:
 
 Compatibility Chart:
 
-Authors: Robbie Brush, Stephon, Adam
+Authors: Robbie Brush, Stefan Marceta.
 
-License:
+License: 2021 RBrush & SMarceta.
 
 Acknowledgements:
                     
