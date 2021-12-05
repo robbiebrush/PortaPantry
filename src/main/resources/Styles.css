@@ -7,7 +7,7 @@ CSS stylesheet
 	-fx-border-width: 5px;
     -fx-border-color: BLACK;
     -fx-font-size: 18px;
-     }
+}
 
 .button {
     -fx-border-width: 2px;
@@ -15,11 +15,18 @@ CSS stylesheet
     -fx-font-size: 18px;
 }
 
+.tab-pane {
+    -fx-font-weight: NORMAL;
+}
+
 .text-field {
+    -fx-font-family: "Arial";
     -fx-background-insets: 5 5 5 5, 5 5 5 5, 0 2 3 2;
 }
 
-
+Text {
+    -fx-font-weight: bold;
+}
 
 /**
 End of CSS stylesheet

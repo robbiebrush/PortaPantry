@@ -54,7 +54,7 @@ public class Main extends Application {
         welcome.setAlignment(Pos.CENTER);
 
         HBox instructs = new HBox();
-        Text labelInstructions = new Text("Please enter your database,\nusername, and password.");
+        Text labelInstructions = new Text("Please enter your database,\nusername, and password: ");
         labelInstructions.setTextAlignment(TextAlignment.CENTER);
         instructs.getChildren().add(labelInstructions);
         instructs.setAlignment(Pos.CENTER);
