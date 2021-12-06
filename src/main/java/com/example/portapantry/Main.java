@@ -9,6 +9,8 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -51,6 +53,30 @@ public class Main extends Application {
         labelWelcome.setTextAlignment(TextAlignment.CENTER);
         welcome.getChildren().add(labelWelcome);
         welcome.setAlignment(Pos.CENTER);
+
+        HBox images = new HBox();
+
+        Image fridge = new Image("file:src/main/java/com/example/portapantry/imgs/fridge.jpg");
+        Image arrow = new Image("file:src/main/java/com/example/portapantry/imgs/arrow.jpg");
+        Image phone = new Image("file:src/main/java/com/example/portapantry/imgs/smartphone.jpg");
+
+        HBox fridgeContainer = new HBox();
+        fridgeContainer.getStyleClass().add("image-container");
+        ImageView fridgeView = new ImageView();
+        fridgeView.setImage(fridge);
+        fridgeContainer.getChildren().add(fridgeView);
+
+        ImageView arrowView = new ImageView();
+        arrowView.setImage(arrow);
+
+        HBox phoneContainer = new HBox();
+        phoneContainer.getStyleClass().add("image-container");
+        ImageView phoneView = new ImageView();
+        phoneView.setImage(phone);
+        phoneContainer.getChildren().add(phoneView);
+
+        images.getChildren().addAll(fridgeContainer, arrowView, phoneContainer);
+        images.setAlignment(Pos.CENTER);
 
         HBox instructs = new HBox();
         Text labelInstructions = new Text("Please enter your database,\nusername, and password.");
@@ -117,7 +143,7 @@ public class Main extends Application {
         button.getChildren().add(loginButt);
         button.setAlignment(Pos.CENTER);
 
-        loginContent.getChildren().addAll(welcome, instructs, dbInput, userInput, passInput, button);
+        loginContent.getChildren().addAll(welcome, instructs, images, dbInput, userInput, passInput, button);
         loginContent.setAlignment(Pos.CENTER);
 
         loginRoot.setCenter(loginContent);

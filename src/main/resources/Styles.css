@@ -19,7 +19,10 @@ CSS stylesheet
     -fx-background-insets: 5 5 5 5, 5 5 5 5, 0 2 3 2;
 }
 
-
+.image-container {
+    -fx-border-width: 2px;
+    -fx-border-color: BLACK;
+}
 
 /**
 End of CSS stylesheet
