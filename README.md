@@ -18,8 +18,6 @@ Screen Shots: https://github.com/robbiebrush/PortaPantry/issues/17
 
 DB Schema: https://github.com/robbiebrush/PortaPantry/issues/18
 
-Compatibility Chart:
-
 Authors: Robbie Brush, Stefan Marceta.
 
 License: 2021 RBrush & SMarceta.
