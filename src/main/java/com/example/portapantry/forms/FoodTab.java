@@ -1,13 +1,9 @@
 package com.example.portapantry.forms;
 
-import com.example.portapantry.HelloApplication;
+import com.example.portapantry.Main;
 import com.example.portapantry.pojos.DisplayFood;
-import com.example.portapantry.pojos.FoodGroup;
-import com.example.portapantry.tables.FoodGroupsTable;
 import com.example.portapantry.tables.FoodsTable;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
@@ -15,21 +11,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 
-import java.util.ArrayList;
+public class FoodTab extends Tab{
 
-/**
- * Class RemoveFood
- */
-
-public class RemoveFood extends Tab {
-
-    private static RemoveFood tab;
+    private static FoodTab tab;
     public TableView tableView;
-    PieChart chart;
 
-    private RemoveFood(){
-        this.setText("Remove Item");
+    private FoodTab(){
+        this.setText("Your Food");
         FoodsTable foodsTable = new FoodsTable();
         BorderPane root = new BorderPane();
         tableView = new TableView();
@@ -37,58 +27,63 @@ public class RemoveFood extends Tab {
         TableColumn<DisplayFood, String> column1 =
                 new TableColumn<>("Food Name");
         column1.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getName()));
+        column1.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column2 =
                 new TableColumn<>("Food Group");
         column2.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodGroup()));
+        column2.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column3 =
                 new TableColumn<>("Food Allergy");
         column3.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodAllergy()));
+        column3.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column4 =
                 new TableColumn<>("Amount");
         column4.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getAmount()));
+        column4.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column5 =
                 new TableColumn<>("Expiry Date");
         column5.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getExpiryDate()));
+        column5.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         tableView.getColumns().addAll(column1, column2, column3, column4, column5);
         tableView.getItems().addAll(foodsTable.getPrettyFoods());
 
         root.setCenter(tableView);
 
+        Button editButton = new Button("Edit Food");
+        editButton.setOnAction(e->{
+            DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
+            EditFoodTab editFoodTab = new EditFoodTab(food);
+            Main.tabPane.getTabs().add(editFoodTab);
+            Main.tabPane.getSelectionModel().select(editFoodTab);
+            refreshTable();
+            StatsFoodTab.getInstance().generateChart();
+        });
+
         Button removeButton = new Button("Remove Food");
         removeButton.setOnAction(e->{
             DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
             foodsTable.deleteFood(food.getId());
             refreshTable();
-            generateChart();
+            StatsFoodTab.getInstance().generateChart();
         });
-        chart = new PieChart();
-        chart.setTitle("All Foods Found");
-        chart.setLabelsVisible(true);
-        root.setRight(chart);
-        generateChart();
 
-        Button updateButton = new Button("Update");
-        updateButton.setOnAction(e->{
-            DisplayFood food = (DisplayFood) tableView.getSelectionModel().getSelectedItem();
-            UpdateFood tab = new UpdateFood(food);
-            HelloApplication.tabPane.getTabs().add(tab);
-            HelloApplication.tabPane.getSelectionModel().select(tab);
-        });
+        Text helpText = new Text("**Select a table item before a button**");
+
         HBox buttons = new HBox();
-        buttons.getChildren().addAll(removeButton, updateButton);
+        buttons.getChildren().addAll(editButton, removeButton, helpText);
         root.setBottom(buttons);
 
         this.setContent(root);
     }
 
-    public static RemoveFood getInstance(){
+    public static FoodTab getInstance(){
         if(tab == null){
-            tab = new RemoveFood();
+            tab = new FoodTab();
         }
         return tab;
     }
@@ -98,28 +93,5 @@ public class RemoveFood extends Tab {
         tableView.getItems().clear();
         tableView.getItems().addAll(table.getPrettyFoods());
     }
-    public void generateChart(){
-        FoodsTable itemTable = new FoodsTable();
-        FoodGroupsTable foodGroupsTable = new FoodGroupsTable();
-
-        //Grab a list of the types of Foods
-        ArrayList<FoodGroup> foodGroups = foodGroupsTable.getAllFoodGroups();
-
-        ArrayList<PieChart.Data> data = new ArrayList<>();
-
-        // "PENNY", 5
-        for (FoodGroup foodGroup : foodGroups) {
-            double count = itemTable.getFoodGroupCount(foodGroup.getId());
-            if (count > 0) {
-                data.add(new PieChart.Data(foodGroup.getName(), count));
-            }
-        }
-
-        ObservableList<PieChart.Data> chartDate =
-                FXCollections.observableArrayList(data);
-
-        chart.setData(chartDate);
-    }
-
 }
 

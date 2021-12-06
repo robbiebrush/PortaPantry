@@ -1,0 +1,40 @@
+ /**
+ CSS stylesheet
+ **/
+
+ .root{
+ 	-fx-background-color: BEIGE;
+ 	-fx-border-width: 5px;
+     -fx-border-color: BLACK;
+     -fx-font-size: 18px;
+ }
+
+
+ .button {
+     -fx-background-margins: 5 5 5 5, 5, 5, 5;
+     -fx-border-width: 2px;
+     -fx-border-color: BLACK;
+     -fx-font-size: 16px;
+ }
+
+ .tab-pane {
+     -fx-font-weight: NORMAL;
+ }
+
+ .text-field {
+     -fx-font-family: "Arial";
+     -fx-background-insets: 5 5 5 5, 5 5 5 5, 0 2 3 2;
+ }
+
+ Text {
+     -fx-font-weight: bold;
+ }
+
+ .image-container {
+     -fx-border-width: 2px;
+     -fx-border-color: BLACK;
+ }
+
+ /**
+ End of CSS stylesheet
+ **/

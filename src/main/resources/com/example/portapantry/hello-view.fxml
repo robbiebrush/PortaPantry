@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.portapantry.HelloApplication">
+      fx:controller="com.example.portapantry.Main">
 =======
 =======
 >>>>>>> bfa115722bc2d07599529a3a6bf1019fe377970f
