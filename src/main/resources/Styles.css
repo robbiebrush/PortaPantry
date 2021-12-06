@@ -30,6 +30,11 @@ Text {
     -fx-font-weight: bold;
 }
 
+.image-container {
+    -fx-border-width: 2px;
+    -fx-border-color: BLACK;
+}
+
 /**
 End of CSS stylesheet
 **/
