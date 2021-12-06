@@ -9,10 +9,12 @@ CSS stylesheet
     -fx-font-size: 18px;
 }
 
+
 .button {
+    -fx-background-margins: 5 5 5 5, 5, 5, 5;
     -fx-border-width: 2px;
     -fx-border-color: BLACK;
-    -fx-font-size: 18px;
+    -fx-font-size: 16px;
 }
 
 .tab-pane {
