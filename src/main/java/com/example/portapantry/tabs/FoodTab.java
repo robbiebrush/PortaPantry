@@ -27,22 +27,27 @@ public class FoodTab extends Tab{
         TableColumn<DisplayFood, String> column1 =
                 new TableColumn<>("Food Name");
         column1.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getName()));
+        column1.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column2 =
                 new TableColumn<>("Food Group");
         column2.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodGroup()));
+        column2.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column3 =
                 new TableColumn<>("Food Allergy");
         column3.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getFoodAllergy()));
+        column3.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column4 =
                 new TableColumn<>("Amount");
         column4.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getAmount()));
+        column4.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         TableColumn<DisplayFood, String> column5 =
                 new TableColumn<>("Expiry Date");
         column5.setCellValueFactory(e-> new SimpleStringProperty(e.getValue().getExpiryDate()));
+        column5.prefWidthProperty().bind(tableView.widthProperty().divide(5));
 
         tableView.getColumns().addAll(column1, column2, column3, column4, column5);
         tableView.getItems().addAll(foodsTable.getPrettyFoods());
