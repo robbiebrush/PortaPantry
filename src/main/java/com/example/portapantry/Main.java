@@ -5,6 +5,7 @@ import com.example.portapantry.database.Database;
 import com.example.portapantry.tabs.AddFoodTab;
 import com.example.portapantry.tabs.FoodTab;
 import com.example.portapantry.tabs.StatsFoodTab;
+import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +16,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.*;
 
 public class Main extends Application {
@@ -53,7 +56,7 @@ public class Main extends Application {
         welcome.setAlignment(Pos.CENTER);
 
         HBox instructs = new HBox();
-        Text labelInstructions = new Text("Please enter your database,\nusername, and password.");
+        Text labelInstructions = new Text("Please enter your database,\nusername, and password: ");
         labelInstructions.setTextAlignment(TextAlignment.CENTER);
         instructs.getChildren().add(labelInstructions);
         instructs.setAlignment(Pos.CENTER);
@@ -116,6 +119,13 @@ public class Main extends Application {
         loginButt.setAlignment(Pos.CENTER);
         button.getChildren().add(loginButt);
         button.setAlignment(Pos.CENTER);
+
+        ScaleTransition st = new ScaleTransition(Duration.millis(2000), loginButt);
+        st.setByX(0.5f);
+        st.setByY(0.5f);
+        st.setCycleCount(4);
+        st.setAutoReverse(true);
+        st.play();
 
         loginContent.getChildren().addAll(welcome, instructs, dbInput, userInput, passInput, button);
         loginContent.setAlignment(Pos.CENTER);
