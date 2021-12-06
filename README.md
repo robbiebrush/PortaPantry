@@ -16,7 +16,7 @@ Prerequisites: You will need an accessible Maria DB and Javafx 16 to use the pro
 
 Screen Shots: https://github.com/robbiebrush/PortaPantry/issues/17
 
-DB Schema:
+DB Schema: https://github.com/robbiebrush/PortaPantry/issues/18
 
 Compatibility Chart:
 
